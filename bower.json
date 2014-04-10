@@ -1,0 +1,22 @@
+{
+  "name": "telemed",
+  "version": "0.0.0",
+  "authors": [
+    "netpork <netpork@gmail.com>"
+  ],
+  "description": "telemedicina",
+  "license": "MIT",
+  "private": true,
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "jquery": "2.1.0",
+    "sammy": "0.7.4",
+    "bootstrap": "3.1.1"
+  }
+}

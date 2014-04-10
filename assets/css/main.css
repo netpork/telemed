@@ -1,0 +1,72 @@
+html, body {
+	height: 100%;
+}
+
+.menu-container {
+	width: 100%;
+	height: 100%;
+	display: table;
+}
+
+	.menu-content {
+		display: table-cell;
+		vertical-align: middle;
+		text-align: center;
+	}
+
+		section {
+			margin-bottom: 70px;
+		}
+
+		section .card {
+			position: relative;
+			width: 230px;
+			height: 130px;
+			margin-right: 40px;
+			background-color: #9fc5f8;
+			border: 3px solid #6fa8dc;
+			display: inline-block;
+			text-align: center;
+		}
+
+		section .card span {
+			color: black;
+			font-family: Tahoma, Verdana, Segoe, sans-serif;
+			font-size: 2em;
+			font-weight: bold;
+			line-height: 4.2em;
+			display: inline-block;
+		}
+
+		.menu-rounded {
+			border-radius: 15px;
+		}
+
+		div.menu-content section:last-of-type {
+			margin-bottom: 0;
+		}
+
+			.badge {
+				position: absolute;
+				background-color: #d00;
+				color: white;
+				width: 32px;
+				height: 32px;
+				top: -15px;
+				right: -15px;
+				padding: 10px;
+				font-size: 1em;
+				line-height: 0.7em;
+				font-weight: bold;
+				border: 2px solid black;
+				border-radius: 50%;
+				-webkit-transition: all .4s ease-in-out;
+				/*-webkit-transform-origin: 0 0;*/
+			}
+				.badge-hidden {
+					-webkit-transform: scale(0);
+				}
+
+				.badge-visible {
+					-webkit-transform: scale(1);
+				}
