@@ -1,32 +1,75 @@
 Telemed.Menu = (function(){
 	var badges,
-	menuContent
-	;
+	menuContent,
+	app,
+	context,
 
-	function initialize() {
+	menuData = {
+		userData: {
+			text: "Moji podatki", action: "#"
+		},
+		measures: {
+			text: "Meritve", action: "#"
+		},
+		reminders: {
+			text: "Opomniki", action: "#"
+		},
+		communication: {
+			text: "Komunikacija", action: "#"
+		},
+		info: {
+			text: "Informacije", action: "#"
+		}
+	};
+
+	function initialize(ctx) {
 		console.log('Menu.init');
-		menuContent = $('div.menu-content');
-		badges = menuContent.find('.badge');
+		app = Telemed.getApp();
+		context = ctx;
+		setUpMenu();
 	}
 
-	function setBadgeCount(index, count) {
-		$(badges[index - 1]).html(count);
+	function setUpMenu() {
+		context.partial('assets/templates/main_menu.ms', menuData).then(function(){
+			menuContent = $('div.menu-content');
+			badges = menuContent.find('.badge');
+		});
 	}
 
-	function resetBadgeCount(index, count) {
-		$(badges[index - 1]).html('0');
+	function setBadgeCount(name, count) {
+		$(badges[findCardIndex(name)]).html(count);
 	}
 
-	function setBadgeVisible(index) {
-		$(badges[index - 1])
+	function resetBadgeCount(name, count) {
+		$(badges[findCardIndex(name)]).html('0');
+	}
+
+	function setBadgeVisible(name) {
+		$(badges[findCardIndex(name)])
 		.removeClass('badge-hidden')
 		.addClass('badge-visible');
 	}
 
-	function setBadgeHidden(index) {
-		$(badges[index - 1])
+	function setBadgeHidden(name) {
+		$(badges[findCardIndex(name)])
 		.removeClass('badge-visible')
 		.addClass('badge-hidden');
+	}
+
+	function isBadgeVisible(name) {
+		return $(badges[findCardIndex(name)])
+		.hasClass('badge-visible');
+	}
+
+	function findCardIndex(name) {
+		var index = 0;
+		
+		$.each(menuData, function(k, v) {
+			if (name === k) return false;
+			index++;
+		});
+
+		return index;
 	}
 
 	return {
@@ -35,6 +78,8 @@ Telemed.Menu = (function(){
 		setBadgeOff: setBadgeHidden,
 		setBadgeCount: setBadgeCount,
 		resetBadgeCount: resetBadgeCount,
+		findCard: findCardIndex,
+		isBadgeVisible: isBadgeVisible,
 
 		getMenuContent: function() {
 			return menuContent;
