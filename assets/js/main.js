@@ -16,6 +16,8 @@ var Telemed = (function($){
 			handleHammer(e);
 		});
 		
+		Hammer.plugins.showTouches();
+		
 		app = $.sammy('#main', function() {
 			
 			// mustache
