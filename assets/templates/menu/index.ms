@@ -1,4 +1,4 @@
-<div class="menu-container">
+<div id="menu" class="menu-container tm-panel tm-hidden">
 	<div class="menu-content">
 		<section>
 			<div data-card="userData" class="card card-shadow menu-rounded">

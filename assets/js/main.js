@@ -1,14 +1,20 @@
 var Telemed = (function($){
 
 	var app,
+	currentPage = 'menu',
+	previousPage,
+	mainContext,
 	mainContainer,
 	menu,
-	hammer
+	hammer,
+	width, height
 	;
 
 	function initialize() {
 		mainContainer = $('#main');
-		
+		setResizeEvent();
+		setBrowserDimensions();
+
 		hammer = Hammer(mainContainer, {
 			prevent_default: true
 		})
@@ -17,16 +23,17 @@ var Telemed = (function($){
 		});
 		
 		Hammer.plugins.showTouches();
-		
+
 		app = $.sammy('#main', function() {
 			
 			// mustache
 			this.use('Mustache', 'ms');
 			
 			// routes 
-			this.get('#/', function(context) {
+			this.get('#/', function() {
+				mainContext = this;
 				menu = Telemed.Menu;
-				menu.initialize(context);
+				menu.initialize();
 				// menu.setBadgeCount(3, '3');
 				// menu.setBadgeOn(3);
 			});
@@ -43,14 +50,54 @@ var Telemed = (function($){
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 	function handleHammer(e) {
 		if (e.type === 'touch') {
-			// console.log($(e.target).data());
 			
-			var obj = $(e.target).data();
-			if (Object.keys(obj)[0] === 'card') {
-				var dataName = obj[Object.keys(obj)[0]];
-				Telemed.Menu.isBadgeVisible(dataName) ? Telemed.Menu.setBadgeOff(dataName) : Telemed.Menu.setBadgeOn(dataName);
+			switch(currentPage) {
+
+				case 'menu':
+					//  main menu events
+					var obj = $(e.target).data();
+					if (Object.keys(obj)[0] === 'card') {
+						var dataName = obj[Object.keys(obj)[0]];
+
+						setCurrentPage(dataName);
+
+						Telemed.Menu.isBadgeVisible(dataName) ? Telemed.Menu.setBadgeOff(dataName) : Telemed.Menu.setBadgeOn(dataName);
+						// TweenLite.to(mainContainer, 0.5, {x: 1440});
+
+						// mainContext.load('assets/templates/userData/index.ms').appendTo(mainContainer);
+
+						Telemed.guiAnim.show(dataName);
+
+					}
+					break;
+
+				case 'userData':
+					Telemed.guiAnim.show('menu');
+					break;
 			}
 		}
+	}
+
+	function setResizeEvent() {
+		var resizeTimer;
+		
+		$(window).resize(function() {
+			clearTimeout(resizeTimer);
+			resizeTimer = setTimeout(setBrowserDimensions, 500);
+		});
+	}
+
+	function setBrowserDimensions() {
+		width = $(window).width();
+		height = $(window).height();
+	}
+
+	function setCurrentPage(page) {
+		currentPage = page;
+	}
+
+	function getCurrentPage() {
+		return currentPage;
 	}
 
 	// API ------------------------------------------------------------------------------------------------------------------------
@@ -62,6 +109,20 @@ var Telemed = (function($){
 		getMainContainer: function() {
 			return mainContainer;
 		},
+
+		getWidth: function() {
+			return width;
+		},
+
+		getHeight: function() {
+			return height;
+		},
+
+		getMainContext: function() {
+			return mainContext;
+		},
+
+		getCurrentPage: getCurrentPage(),
 		
 		initialize: initialize
 	};

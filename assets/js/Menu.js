@@ -22,17 +22,17 @@ Telemed.Menu = (function(){
 		}
 	};
 
-	function initialize(ctx) {
-		console.log('Menu.init');
+	function initialize() {
 		app = Telemed.getApp();
-		context = ctx;
+		context = Telemed.getMainContext();
 		setUpMenu();
 	}
 
 	function setUpMenu() {
-		context.partial('assets/templates/main_menu.ms', menuData).then(function(){
+		context.partial('assets/templates/menu/index.ms', menuData).then(function(){
 			menuContent = $('div.menu-content');
 			badges = menuContent.find('.badge');
+			$('#menu').removeClass('tm-hidden');
 		});
 	}
 
