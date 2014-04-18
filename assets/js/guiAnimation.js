@@ -10,6 +10,7 @@ Telemed.guiAnim = (function($){
 			Telemed.getMainContext().load(templatesPath + page + '/index.ms').appendTo(Telemed.getMainContainer())
 			.then(function() {
 				getPanels();
+				Telemed.getInitCallback()();
 				scroll();
 			});
 		} else {
@@ -17,7 +18,9 @@ Telemed.guiAnim = (function($){
 			Telemed.getMainContext().load(templatesPath + page + '/index.ms').prependTo(Telemed.getMainContainer())
 			.then(function() {
 				getPanels();
-				scrollToMenu();
+				Telemed.getInitCallback()();
+				// if app just launched, just fade in the menu, otherwise scroll to menu
+				panels.length < 2 ? fadeInMenu() : scrollToMenu();
 			});
 		}
 	}
@@ -43,6 +46,9 @@ Telemed.guiAnim = (function($){
 		}});
 	}
 
+	function fadeInMenu() {
+		TweenLite.to('#menu', 1, {autoAlpha: 1, delay: 0.5});
+	}
 
 	return {
 		show: showPage

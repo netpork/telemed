@@ -2,6 +2,7 @@ var Telemed = (function($){
 
 	var app,
 	currentPage = 'menu',
+	initCallback, touchCallback,
 	previousPage,
 	mainContext,
 	mainContainer,
@@ -29,14 +30,25 @@ var Telemed = (function($){
 			// mustache
 			this.use('Mustache', 'ms');
 			
-			// routes 
+			// menu route 
 			this.get('#/', function() {
 				mainContext = this;
-				menu = Telemed.Menu;
-				menu.initialize();
+				setCurrentPage('menu');
+				setInitCallback(Telemed.Menu.initialize);
+				setTouchCallback(Telemed.Menu.touch);
+				Telemed.guiAnim.show('menu');
 				// menu.setBadgeCount(3, '3');
 				// menu.setBadgeOn(3);
 			});
+
+			// user data route			
+			this.get('#/userData', function() {
+				mainContext = this;
+				setCurrentPage('userData');
+				setInitCallback(Telemed.userData.initialize);
+				Telemed.guiAnim.show('userData');
+			});
+
 		});
 	}
 
@@ -50,31 +62,10 @@ var Telemed = (function($){
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 	function handleHammer(e) {
 		if (e.type === 'touch') {
-			
-			switch(currentPage) {
 
-				case 'menu':
-					//  main menu events
-					var obj = $(e.target).data();
-					if (Object.keys(obj)[0] === 'card') {
-						var dataName = obj[Object.keys(obj)[0]];
+			// call setted touch handler 
+			touchCallback(e);
 
-						setCurrentPage(dataName);
-
-						Telemed.Menu.isBadgeVisible(dataName) ? Telemed.Menu.setBadgeOff(dataName) : Telemed.Menu.setBadgeOn(dataName);
-						// TweenLite.to(mainContainer, 0.5, {x: 1440});
-
-						// mainContext.load('assets/templates/userData/index.ms').appendTo(mainContainer);
-
-						Telemed.guiAnim.show(dataName);
-
-					}
-					break;
-
-				case 'userData':
-					Telemed.guiAnim.show('menu');
-					break;
-			}
 		}
 	}
 
@@ -100,6 +91,14 @@ var Telemed = (function($){
 		return currentPage;
 	}
 
+	function setInitCallback(fn) {
+		initCallback = fn;
+	}
+
+	function setTouchCallback(fn) {
+		touchCallback = fn;
+	}
+
 	// API ------------------------------------------------------------------------------------------------------------------------
 	return {
 		getApp: function() {
@@ -120,6 +119,14 @@ var Telemed = (function($){
 
 		getMainContext: function() {
 			return mainContext;
+		},
+
+		getInitCallback: function() {
+			return initCallback;
+		},
+
+		getTouchCallback: function() {
+			return touchCallback;
 		},
 
 		getCurrentPage: getCurrentPage(),

@@ -6,7 +6,7 @@ Telemed.Menu = (function(){
 
 	menuData = {
 		userData: {
-			text: "Moji podatki", action: "#"
+			text: "Moji podatki"
 		},
 		measures: {
 			text: "Meritve", action: "#"
@@ -29,11 +29,13 @@ Telemed.Menu = (function(){
 	}
 
 	function setUpMenu() {
-		context.partial('assets/templates/menu/index.ms', menuData).then(function(){
-			menuContent = $('div.menu-content');
-			badges = menuContent.find('.badge');
-			$('#menu').removeClass('tm-hidden');
-		});
+		menuContent = $('div.menu-content');
+		badges = menuContent.find('.badge');
+		// context.partial('assets/templates/menu/index.ms', menuData).then(function(){
+		// 	menuContent = $('div.menu-content');
+		// 	badges = menuContent.find('.badge');
+		// 	// $('#menu').removeClass('tm-hidden');
+		// });
 	}
 
 	function setBadgeCount(name, count) {
@@ -72,6 +74,22 @@ Telemed.Menu = (function(){
 		return index;
 	}
 
+	function touchHandler(e) {
+		var obj = $(e.target).data();
+		if (Object.keys(obj)[0] === 'card') {
+			var dataName = obj[Object.keys(obj)[0]];
+
+			context.redirect('#/' + dataName);
+			// setCurrentPage(dataName);
+			// Telemed.Menu.isBadgeVisible(dataName) ? Telemed.Menu.setBadgeOff(dataName) : Telemed.Menu.setBadgeOn(dataName);
+			// TweenLite.to(mainContainer, 0.5, {x: 1440});
+
+			// mainContext.load('assets/templates/userData/index.ms').appendTo(mainContainer);
+
+			// Telemed.guiAnim.show(dataName);
+		}
+	}
+
 	return {
 		initialize: initialize,
 		setBadgeOn: setBadgeVisible,
@@ -80,6 +98,7 @@ Telemed.Menu = (function(){
 		resetBadgeCount: resetBadgeCount,
 		findCard: findCardIndex,
 		isBadgeVisible: isBadgeVisible,
+		touch: touchHandler,
 
 		getMenuContent: function() {
 			return menuContent;
