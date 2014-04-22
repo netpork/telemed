@@ -1,5 +1,8 @@
 Telemed.Menu = (function(){
 	var badges,
+	shelfButton,
+	shelfContainer,
+	shelfVisible = false,
 	menuContent,
 	app,
 	context,
@@ -26,11 +29,18 @@ Telemed.Menu = (function(){
 		app = Telemed.getApp();
 		context = Telemed.getMainContext();
 		setUpMenu();
+		Telemed.Menu.setBadgeCount('measures', '3');
+		Telemed.Menu.setBadgeOn('measures');
 	}
 
 	function setUpMenu() {
 		menuContent = $('div.menu-content');
 		badges = menuContent.find('.badge');
+		shelfButton = menuContent.find('#shelf');
+		shelfContainer = $('.shelf-container');
+		menuContent.find('.card').on('click', touchHandler);
+		shelfButton.on('click', shelfHandler);
+
 		// context.partial('assets/templates/menu/index.ms', menuData).then(function(){
 		// 	menuContent = $('div.menu-content');
 		// 	badges = menuContent.find('.badge');
@@ -71,15 +81,26 @@ Telemed.Menu = (function(){
 			index++;
 		});
 
+		console.log(name, index);
 		return index;
 	}
 
-	function touchHandler(e) {
-		var obj = $(e.target).data();
-		if (Object.keys(obj)[0] === 'card') {
-			var dataName = obj[Object.keys(obj)[0]];
+	function shelfFocus() {
+		shelfButton.focus();
+	}
 
-			context.redirect('#/' + dataName);
+	function shelfBlur() {
+		shelfButton.blur();
+	}
+
+	function touchHandler(e) {
+		// var obj = $(e.target).data();
+		// if (Object.keys(obj)[0] === 'card') {
+		// 	var dataName = obj[Object.keys(obj)[0]];
+
+			var cardName = $(e.target).data('card');
+			context.redirect('#/' + cardName);
+			
 			// setCurrentPage(dataName);
 			// Telemed.Menu.isBadgeVisible(dataName) ? Telemed.Menu.setBadgeOff(dataName) : Telemed.Menu.setBadgeOn(dataName);
 			// TweenLite.to(mainContainer, 0.5, {x: 1440});
@@ -87,7 +108,12 @@ Telemed.Menu = (function(){
 			// mainContext.load('assets/templates/userData/index.ms').appendTo(mainContainer);
 
 			// Telemed.guiAnim.show(dataName);
-		}
+		// }
+	}
+
+	function shelfHandler(e) {
+		(shelfVisible) ? Telemed.guiAnim.hideShelf(shelfContainer) : Telemed.guiAnim.showShelf(shelfContainer);
+ 		shelfVisible = !shelfVisible;
 	}
 
 	return {
@@ -106,6 +132,10 @@ Telemed.Menu = (function(){
 
 		getBadges: function() {
 			return badges;
+		},
+
+		getShelfButton: function() {
+			return shelfButton;
 		}
 	};
 

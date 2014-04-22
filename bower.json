@@ -22,6 +22,8 @@
     "hammerjs": "1.0.x",
     "jquery-hammerjs": "1.0.6",
     "tweenlite": ">=1.11.5",
-    "tweenlite-css": ">=1.11.5"
+    "tweenlite-css": ">=1.11.5",
+    "normalize-css": ">=3.0.1",
+    "topcoat": "*"
   }
 }

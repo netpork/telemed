@@ -1,7 +1,8 @@
 Telemed.guiAnim = (function($){
 	var current,
 	templatesPath ='assets/templates/',
-	panels
+	panels,
+	shelfWidth = 300
 	;
 
 	function showPage(page) {
@@ -19,7 +20,7 @@ Telemed.guiAnim = (function($){
 			.then(function() {
 				getPanels();
 				Telemed.getInitCallback()();
-				// if app just launched, just fade in the menu, otherwise scroll to menu
+				// if app just launched, fade in the menu, otherwise scroll to menu
 				panels.length < 2 ? fadeInMenu() : scrollToMenu();
 			});
 		}
@@ -50,7 +51,22 @@ Telemed.guiAnim = (function($){
 		TweenLite.to('#menu', 1, {autoAlpha: 1, delay: 0.5});
 	}
 
+	function showShelf(shelf) {
+		getPanels();
+		$(shelf).toggleClass('tm-hidden');
+		TweenLite.to(panels[0], 0.2, {x: "+=" + shelfWidth, opacity: 0.2});
+	}
+
+	function hideShelf(shelf) {
+		TweenLite.to(panels[0], 0.2, {x: 0, opacity: 1, onComplete: function() {
+			$(shelf).toggleClass('tm-hidden');
+			$(Telemed.Menu.getShelfButton()).blur();
+		}});
+	}
+
 	return {
-		show: showPage
+		show: showPage,
+		showShelf: showShelf,
+		hideShelf: hideShelf
 	};
 })(jQuery);

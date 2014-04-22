@@ -16,14 +16,15 @@ var Telemed = (function($){
 		setResizeEvent();
 		setBrowserDimensions();
 
-		hammer = Hammer(mainContainer, {
+/*		hammer = Hammer(mainContainer, {
 			prevent_default: true
 		})
 		.on('touch', function(e) {
 			handleHammer(e);
 		});
-		
+		// for development and testing
 		Hammer.plugins.showTouches();
+*/		
 
 		app = $.sammy('#main', function() {
 			
@@ -35,10 +36,7 @@ var Telemed = (function($){
 				mainContext = this;
 				setCurrentPage('menu');
 				setInitCallback(Telemed.Menu.initialize);
-				setTouchCallback(Telemed.Menu.touch);
 				Telemed.guiAnim.show('menu');
-				// menu.setBadgeCount(3, '3');
-				// menu.setBadgeOn(3);
 			});
 
 			// user data route			
@@ -60,7 +58,7 @@ var Telemed = (function($){
 	});
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
-	function handleHammer(e) {
+/*	function handleHammer(e) {
 		if (e.type === 'touch') {
 
 			// call setted touch handler 
@@ -68,7 +66,7 @@ var Telemed = (function($){
 
 		}
 	}
-
+*/
 	function setResizeEvent() {
 		var resizeTimer;
 		

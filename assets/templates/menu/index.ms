@@ -1,5 +1,12 @@
 <div id="menu" class="menu-container tm-panel tm-hidden">
 	<div class="menu-content">
+		
+		<section class="shelf-icon">
+			<button id="shelf" class="topcoat-icon-button--quiet">
+				 <span class="icomatic icon-large topcoat-icon">listview</span>
+			</button>
+		</section>
+	
 		<section>
 			<div data-card="userData" class="card card-shadow menu-rounded">
 				<span data-card="userData">Moji podatki</span>
@@ -25,4 +32,39 @@
 			</div>
 		</section>
 	</div>
+
+</div>
+
+<div class="shelf-container tm-hidden">
+
+	<div class="topcoat-navigation-bar">
+	    <div class="topcoat-navigation-bar__item center full">
+	        <span class="topcoat-navigation-bar__item user-container">
+	        	<img src="assets/img/user.jpg" width="46px" height="46px" class="user-icon" alt="user picture">
+	        </span>
+	        <h1 class="topcoat-navigation-bar__title">Random Long Hair Name</h1>
+	    </div>
+	</div>
+
+	<div class="topcoat-list">
+	  <ul class="topcoat-list__container">
+	    <li class="topcoat-list__item">
+	    	<span class="icomatic">user</span>
+	    	<span class="icon-label">Račun</span>
+	    </li>
+	    <li class="topcoat-list__item">
+	    	<span class="icomatic">settings</span>
+	    	<span class="icon-label">Nastavitve</span>
+	    </li>
+	    <li class="topcoat-list__item">
+	    	<span class="icomatic">feedback</span>
+	    	<span class="icon-label">Pošlji sporočilo</span>
+	    </li>
+	    <li class="topcoat-list__item">
+	    	<span class="icomatic">question</span>
+	    	<span class="icon-label">Pomoč</span>
+	    </li>
+	  </ul>
+	</div>	
+
 </div>
