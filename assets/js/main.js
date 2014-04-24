@@ -46,7 +46,6 @@ var Telemed = (function($){
 				setInitCallback(Telemed.userData.initialize);
 				Telemed.guiAnim.show('userData');
 			});
-
 		});
 	}
 

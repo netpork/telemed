@@ -6,6 +6,7 @@ Telemed.Menu = (function(){
 	menuContent,
 	app,
 	context,
+	first = true,
 
 	menuData = {
 		userData: {

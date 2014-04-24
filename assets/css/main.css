@@ -88,20 +88,59 @@ body {
 			border: 2px solid #6fa8dc;
 			display: inline-block;
 			text-align: center;
-/*			-webkit-box-shadow: 4px 2px 6px 0px rgba(50, 50, 50, 0.42);
-			box-shadow:         4px 2px 6px 0px rgba(50, 50, 50, 0.42);
-			box-shadow: 0 8px 10px rgba(0, 0, 0, 0.5);
-			box-shadow: 0px 2px 2px rgba(0, 0, 0, 0.3);
-*/
 		}
 
 		section .card span {
 			color: #08346e;
-			font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;
+			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
+			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
 			font-size: 2em;
-			font-weight: bold;
+			font-weight: 600;
 			line-height: 4.2em;
 			/*display: inline-block;*/
+		}
+
+
+		.left-container section .mini-card {
+			position: relative;
+			/*margin: 0 auto;*/
+			width: 180px;
+			height: 80px;
+			display: block;
+			text-align: center;
+			margin-bottom: 30px;
+		}
+
+		.left-container section .mini-card span {
+			color: #08346e;
+			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
+			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+			font-size: 1.6em;
+			font-weight: 600;
+			line-height: 3.3em;
+			/*display: inline-block;*/
+		}
+
+		.left-container section .mini-card-active span {
+			color: #000;
+			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
+			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+			font-size: 1.6em;
+			font-weight: 200;
+			line-height: 3.3em;
+			/*display: inline-block;*/
+		}
+
+		.mini-card-active {
+			background: -webkit-radial-gradient(bottom, circle cover, #ffffff 0%, #aaa 100%);
+			margin-left: 30px;
+			border: none;
+		}
+
+		.mini-card-default {
+			background-color: #9fc5f8;
+			margin: 0 auto;
+			border: 2px solid #6fa8dc;
 		}
 
 		.menu-rounded {
@@ -144,3 +183,24 @@ body {
 				.badge-visible {
 					-webkit-transform: scale(1);
 				}
+
+.text-shadow {
+	text-shadow: 0 1px #fff;
+}
+
+.left-container {
+	margin-top: 1%;
+}
+
+	.left-content {
+
+	}
+
+.right-container {
+	height: 100%;
+	overflow: auto;
+}
+
+	.right-content {
+		padding: 10px;
+	}

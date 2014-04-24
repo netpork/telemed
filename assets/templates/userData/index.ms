@@ -1,10 +1,47 @@
-<div id="userData" class="tm-panel tm-hidden">
-	<span>asdfasdfad</span>
+<div id="userData" class="tm-panel tm-hidden topcoat-grid">
+	
+	<header class="topcoat-navigation-bar topcoat-grid__row">
+		<div class="topcoat-navigation-bar__item topcoat-grid__column--1">
+			<button class="topcoat-icon-button--quiet">
+  				<span class="icomatic">back</span>
+				Nazaj
+        	</button>
+		</div>
+		<div class="topcoat-navigation-bar__item topcoat-grid__column--auto center">
+			<h1 class="topcoat-navigation-bar__title">Moji podatki</h1>
+		</div> 
+	</header>
 
-	Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-	tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-	quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-	consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-	cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-	proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+
+	<section class="topcoat-grid__row" style="height: 89%">
+		<div class="topcoat-grid__column--2 left-container text-shadow">
+			
+			<section>
+				
+				<div data-card="personalData" class="mini-card mini-card-active card-shadow menu-rounded">
+					<span class="">Osebni podatki</span>
+				</div>
+				
+				<div data-card="personalDoctors" class="mini-card mini-card-default card-shadow menu-rounded">
+					<span class="">Moji zdravniki</span>
+				</div>
+				
+				<div data-card="personalHealthCard" class="mini-card mini-card-default card-shadow menu-rounded">
+					<span class="">Karton</span>
+				</div>
+
+			</section>
+	
+		</div>
+		
+		<div class="topcoat-grid__column--auto right-container">
+			<div class="right-content text-shadow">
+				<section>
+					<img src="assets/img/older.jpeg" class="menu-rounded" alt="user picture">
+				</section>
+			</div>		
+		</div>
+	</section>
+
+
 </div>
