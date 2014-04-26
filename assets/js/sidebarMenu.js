@@ -1,4 +1,4 @@
-Telemed.sidebarMenu = (function(){
+Telemed.sidebarMenu = (function($){
 	var container,
 	cards,
 	cardActive,
@@ -29,10 +29,10 @@ Telemed.sidebarMenu = (function(){
 	}
 
 	function injectMenu() {
-			Telemed.getMainContext().renderEach(templatesPath + 'userData/minicard.ms', currentMenu)
-					.appendTo(container).then(function(){
-						prepareMenu();
-					});
+		Telemed.getMainContext().renderEach(templatesPath + 'userData/minicard.ms', currentMenu)
+				.appendTo(container).then(function(){
+					prepareMenu();
+				});
 	}
 
 	function prepareMenu() {
@@ -54,17 +54,38 @@ Telemed.sidebarMenu = (function(){
 	function setActive(el) {
 		// resetCards();
 		
-		TweenLite.to(cardActive, 0.5, {rotationX: 0, ease: Power3.easeOut, onComplete: function(){
-			$(cardActive).toggleClass('mini-card-active mini-card-default');
-			// $(cardActive).addClass('mini-card-default');
-		}});
+		TweenLite.to(cardActive, 0.25, {
+			rotationX: 270,
+			ease: Power3.easeOut,
+			onComplete: function() {
+				$(cardActive).toggleClass('mini-card-active mini-card-default');
+				// $(cardActive).addClass('mini-card-default');
+
+				TweenLite.to(cardActive, 0.25, {
+						rotationX: 0, 
+						ease: Power3.easeOut,
+						onComplete: function() {
+						}
+					});
+			}
+		});
 		
-		TweenLite.to(el, 0.5, {rotationX: 360, ease: Power3.easeOut, onComplete: function() {
-			$(el).toggleClass('mini-card-active mini-card-default');
-			// $(el).removeClass('mini-card-default');
-			// $(el).addClass('mini-card-active');
-			cardActive = el;
-		}});
+		TweenLite.to(el, 0.25, {
+			rotationX: 90, 
+			ease: Power3.easeOut, 
+			onComplete: function() {
+				$(el).toggleClass('mini-card-active mini-card-default');
+				// $(el).removeClass('mini-card-default');
+				// $(el).addClass('mini-card-active');
+				TweenLite.to(el, 0.25, {
+					rotationX: 360, 
+					ease: Power3.easeOut,
+					onComplete: function() {
+						cardActive = el;
+					}
+				});
+			}
+		});
 	}
 
 	function resetCards() {
@@ -81,4 +102,4 @@ Telemed.sidebarMenu = (function(){
 		}
 	};
 
-})();
+})(jQuery);

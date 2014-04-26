@@ -43,7 +43,7 @@
 				</section>
 	
 				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--2">
+					<div class="topcoat-grid__column--3">
 						<span class="left-info-text">Višina:</span>
 					</div>				
 					<div class="topcoat-grid__column--auto">
@@ -52,7 +52,7 @@
 				</div>		
 
 				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--2">
+					<div class="topcoat-grid__column--3">
 						<span class="left-info-text">Teža:</span>
 					</div>				
 					<div class="topcoat-grid__column--auto">
@@ -61,7 +61,7 @@
 				</div>		
 
 				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--2">
+					<div class="topcoat-grid__column--3">
 						<span class="left-info-text">Krvni tlak:</span>
 					</div>				
 					<div class="topcoat-grid__column--auto">
@@ -70,7 +70,7 @@
 				</div>		
 
 				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--2">
+					<div class="topcoat-grid__column--3">
 						<span class="left-info-text">Utrip:</span>
 					</div>				
 					<div class="topcoat-grid__column--auto">
