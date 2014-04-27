@@ -13,10 +13,10 @@
 	</header>
 
 
-	<section class="topcoat-grid__row" style="height: 89%">
+	<section class="topcoat-grid__row" style="height: 89%; background-color: whiteSmoke;">
 		<div class="topcoat-grid__column--3 left-container text-shadow">
 			
-			<section id="sidebar-menu">
+			<section id="sidebar-menu" class="left-content">
 				
 <!-- 				<div data-card="personalData" id="dd" class="mini-card mini-card-active card-shadow menu-rounded">
 	<span class="">Osebni podatki</span>

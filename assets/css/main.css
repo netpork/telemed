@@ -188,10 +188,12 @@ body {
 }
 
 .left-container {
-	margin-top: 20px;
+
+	/*background-color: #f5f9f8;*/
 }
 
 	.left-content {
+	margin-top: 20px;
 	}
 
 .right-container {
