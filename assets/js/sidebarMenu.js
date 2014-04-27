@@ -48,6 +48,7 @@ Telemed.sidebarMenu = (function($){
 
 	function touchMenuHandler(e) {
 		console.log($(this).data('card'));
+		if ($(this).hasClass('mini-card-active')) return;
 		setActive(this);
 	}
 
