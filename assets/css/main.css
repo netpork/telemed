@@ -222,3 +222,49 @@ body {
 			font-weight: 200;
 			font-size: 2em;
 		}
+
+		.right-content header h2 {
+			font-weight: 200;
+			margin: 10px 0 10px;
+			font-size: 25px;
+			position: relative;
+			display: inline-block;
+			padding-right: 10px;
+			background: #F4F4F4;
+		}
+
+		.small-icon {
+			margin-left: -20px;
+		}
+
+		.schedule {
+			width: 150px;
+			text-align: left;
+			display: inline-block;
+		}
+
+		.schedule-large {
+			width: auto;
+			text-align: left;
+			display: inline-block;			
+		}
+
+
+
+		.right-content header p {
+			margin: 0 0 4px 20px;
+		}
+
+		.right-content header {
+			position: relative;
+		}
+
+		.right-content header:before {
+			content: '';
+			width: 100%;
+			display: block;
+			position: absolute;
+			left: 0;
+			top: 26px;
+			border-bottom: 1px solid #E0E0E0;
+		}

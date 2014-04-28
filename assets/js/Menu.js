@@ -1,4 +1,6 @@
 Telemed.Menu = (function(){
+	'use strict';
+
 	var badges,
 	shelfButton,
 	shelfContainer,
@@ -99,8 +101,8 @@ Telemed.Menu = (function(){
 		// if (Object.keys(obj)[0] === 'card') {
 		// 	var dataName = obj[Object.keys(obj)[0]];
 
-			var cardName = $(e.target).data('card');
-			context.redirect('#/' + cardName);
+		var cardName = $(e.target).data('card');
+		context.redirect('#/' + cardName);
 			
 			// setCurrentPage(dataName);
 			// Telemed.Menu.isBadgeVisible(dataName) ? Telemed.Menu.setBadgeOff(dataName) : Telemed.Menu.setBadgeOn(dataName);

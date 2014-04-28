@@ -1,5 +1,6 @@
 var Telemed = (function($){
-
+	'use strict';
+	
 	var app,
 	currentPage = 'menu',
 	initCallback, touchCallback,

@@ -1,4 +1,6 @@
 Telemed.guiAnim = (function($){
+	'use strict';
+
 	var current,
 	templatesPath ='assets/templates/',
 	panels,

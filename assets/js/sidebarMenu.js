@@ -1,9 +1,16 @@
 Telemed.sidebarMenu = (function($){
+/*jshint validthis: true */
+	'use strict';
+
 	var container,
 	cards,
 	cardActive,
 	currentMenu,
+	newMenu,
+	oldMenu,
+	menuHandler, 
 	templatesPath ='assets/templates/',
+	tweenBusy = false,
 
 	userData = [
 		{
@@ -22,9 +29,12 @@ Telemed.sidebarMenu = (function($){
 
 	;
 
-	function initialize(menu) {
+	function initialize(menu, menuEventHandler) {
 		container = $('#sidebar-menu');
-		currentMenu = menu; 
+		oldMenu = 'personalData';
+		newMenu = '';
+		currentMenu = menu;
+		menuHandler = menuEventHandler;
 		injectMenu();
 	}
 
@@ -47,9 +57,16 @@ Telemed.sidebarMenu = (function($){
 	}
 
 	function touchMenuHandler(e) {
-		console.log($(this).data('card'));
-		if ($(this).hasClass('mini-card-active')) return;
+		if (tweenBusy) return;
+
+		newMenu = $(this).data('card');
+		
+		// check if clicked menu is the current one
+		if (newMenu === oldMenu) return;
+		
 		setActive(this);
+		menuHandler($('#' + oldMenu), $('#' + newMenu));
+		oldMenu = newMenu;
 	}
 
 	function setActive(el) {
@@ -58,6 +75,9 @@ Telemed.sidebarMenu = (function($){
 		TweenLite.to(cardActive, 0.25, {
 			rotationX: 270,
 			ease: Power3.easeOut,
+			onStart: function() {
+				tweenBusy = true;
+			},
 			onComplete: function() {
 				$(cardActive).toggleClass('mini-card-active mini-card-default');
 				// $(cardActive).addClass('mini-card-default');
@@ -66,6 +86,7 @@ Telemed.sidebarMenu = (function($){
 						rotationX: 0, 
 						ease: Power3.easeOut,
 						onComplete: function() {
+							tweenBusy = false;
 						}
 					});
 			}
