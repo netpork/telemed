@@ -149,6 +149,7 @@
 			</div>
 		</div>
 
+<!-- personal health card -->
 		<div id="personalHealthCard" class="topcoat-grid__column--auto right-container" style="display: none;">
 			<div class="right-content text-shadow">
 				<header>

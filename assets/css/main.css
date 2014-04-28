@@ -188,8 +188,8 @@ body {
 }
 
 .left-container {
-
-	/*background-color: #f5f9f8;*/
+	box-shadow: inset -1px 0 #9daca9, 1px 0 #d6dcdb;
+	background-color: #ABC9F5;
 }
 
 	.left-content {
