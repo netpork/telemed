@@ -1,5 +1,4 @@
 Telemed.sidebarMenu = (function($){
-/*jshint validthis: true */
 	'use strict';
 
 	var container,
