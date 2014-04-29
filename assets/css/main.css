@@ -197,7 +197,7 @@ body {
 }
 
 	.left-content {
-	margin-top: 20px;
+		margin-top: 30px;
 	}
 
 .right-container {
@@ -252,8 +252,6 @@ body {
 			text-align: left;
 			display: inline-block;			
 		}
-
-
 
 		.right-content header p {
 			margin: 0 0 4px 20px;
