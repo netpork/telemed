@@ -45,6 +45,7 @@ Telemed.guiAnim = (function($){
 
 		TweenLite.to([panels[0], panels[1]], 0.5, {x: "-=" + Telemed.getWidth(), onComplete: function() {
 			panels[0].remove();
+			removeShelf();
 		}});
 	}
 
@@ -71,6 +72,10 @@ Telemed.guiAnim = (function($){
 			$(shelf).toggleClass('tm-hidden');
 			$(Telemed.Menu.getShelfButton()).blur();
 		}});
+	}
+
+	function removeShelf() {
+		$('.shelf-container').remove();	
 	}
 
 	return {
