@@ -40,6 +40,8 @@ Telemed.guiAnim = (function($){
 			return;
 		}
 
+		forceGPU();
+
 		TweenLite.set(panels[1], {x: Telemed.getWidth()});
 		$(panels[1]).removeClass('tm-hidden');
 
@@ -50,11 +52,16 @@ Telemed.guiAnim = (function($){
 	}
 
 	function scrollToMenu() {
+		forceGPU();
 		TweenLite.set(panels[0], {x: -Telemed.getWidth()});
 		$(panels[0]).removeClass('tm-hidden');
 		TweenLite.to([panels[0], panels[1]], 0.5, {x: "+=" + Telemed.getWidth(), onComplete: function() {
 			panels[1].remove();
 		}});
+	}
+
+	function forceGPU() {
+		TweenLite.set([panels[0], panels[1]], {force3D:true});
 	}
 
 	function fadeInMenu() {
