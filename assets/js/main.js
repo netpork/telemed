@@ -58,11 +58,10 @@ var Telemed = (function($){
 	});
 */
 	document.addEventListener('deviceready', function() {
-		alert('123');
 		initialize();
 		app.debug = true;
 		app.run('#/');
-	});
+	}, false);
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 /*	function handleHammer(e) {
