@@ -59,6 +59,14 @@ var Telemed = (function($){
 */
 	document.addEventListener('deviceready', function() {
 		initialize();
+		
+		navigator.notification.alert(
+			'w=' + width + ' h=' + height,  // message
+			null,         // callback
+			'Game Over',            // title
+			'Done'                  // buttonName
+		);
+		
 		app.debug = true;
 		app.run('#/');
 	}, false);
