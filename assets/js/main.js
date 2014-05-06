@@ -51,7 +51,13 @@ var Telemed = (function($){
 	}
 
 	// START ------------------------------------------------------------------------------------------------------------------------
-	$(function(){
+/*	$(function(){
+		initialize();
+		app.debug = true;
+		app.run('#/');
+	});
+*/
+	document.addEventListener('deviceready', function(){
 		initialize();
 		app.debug = true;
 		app.run('#/');
