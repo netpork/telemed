@@ -57,7 +57,8 @@ var Telemed = (function($){
 		app.run('#/');
 	});
 */
-	document.addEventListener('deviceready', function(){
+	document.addEventListener('deviceready', function() {
+		alert('123');
 		initialize();
 		app.debug = true;
 		app.run('#/');
