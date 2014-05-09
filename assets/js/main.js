@@ -34,7 +34,6 @@ var Telemed = (function($){
 			
 			// menu route 
 			this.get('#/', function() {
-				alert('menu');
 				mainContext = this;
 				setCurrentPage('menu');
 				setInitCallback(Telemed.Menu.initialize);
@@ -52,13 +51,13 @@ var Telemed = (function($){
 	}
 
 	// START ------------------------------------------------------------------------------------------------------------------------
-/*	$(function(){
+	$(function(){
 		initialize();
-		alert('skrin ' + width + ' ' + height);
+//		alert('skrin ' + width + ' ' + height);
 		app.debug = true;
 		app.run('#/');
 	});
-*/
+/*
 	document.addEventListener('deviceready', function() {
 		initialize();
 		
@@ -72,6 +71,7 @@ var Telemed = (function($){
 		app.debug = true;
 		app.run('#/');
 	}, false);
+*/
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 /*	function handleHammer(e) {

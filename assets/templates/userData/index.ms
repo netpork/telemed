@@ -1,20 +1,20 @@
-<div id="userData" class="tm-panel tm-hidden topcoat-grid text-shadow">
+<div id="userData" class="tm-panel tm-hidden text-shadow">
 	
-	<header class="topcoat-navigation-bar topcoat-grid__row">
-		<div class="topcoat-navigation-bar__item topcoat-grid__column--1">
-			<button id="backButton" data-route="#/" class="topcoat-icon-button--quiet">
-  				<span class="icomatic">back</span>
-				Nazaj
-        	</button>
-		</div>
-		<div class="topcoat-navigation-bar__item topcoat-grid__column--auto center">
+	<header class="topcoat-navigation-bar row">
+		<div class="topcoat-navigation-bar__item column-1-hand">
+            <button id="backButton" data-route="#/" class="topcoat-icon-button--large--quiet" style="width: 100px;">
+                <span class="icomatic">back</span>
+                Nazaj
+            </button>
+        </div>
+		<div class="topcoat-navigation-bar__item column-auto-hand center">
 			<h1 class="topcoat-navigation-bar__title">Moji podatki</h1>
 		</div> 
 	</header>
 
 
-	<section class="topcoat-grid__row" style="height: 89%; background-color: whiteSmoke;">
-		<div class="topcoat-grid__column--3 left-container text-shadow">
+	<section class="row" style="height: 89%; background-color: whiteSmoke;">
+		<div class="column-3-hand left-container text-shadow">
 			
 			<section id="sidebar-menu" class="left-content">
 				
@@ -36,44 +36,44 @@
 		
 
 <!-- personal data -->
-		<div id="personalData" class="topcoat-grid__column--auto right-container" style="display: block;">
+		<div id="personalData" class="column-auto-hand right-container" style="display: block;">
 			<div class="right-content text-shadow">
 				<section>
 					<img src="assets/img/older.jpeg" class="menu-rounded card-shadow" alt="user picture">
 				</section>
 	
-				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--3">
+				<div class="row text-shadow">
+					<div class="column-3-hand">
 						<span class="left-info-text">Višina:</span>
 					</div>				
-					<div class="topcoat-grid__column--auto">
+					<div class="column-auto-hand">
 						<span class="right-info-text">167cm</span>
 					</div>
 				</div>		
 
-				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--3">
+				<div class="row text-shadow">
+					<div class="column-3-hand">
 						<span class="left-info-text">Teža:</span>
 					</div>				
-					<div class="topcoat-grid__column--auto">
+					<div class="column-auto-hand">
 						<span class="right-info-text">68kg</span>
 					</div>
 				</div>		
 
-				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--3">
+				<div class="row text-shadow">
+					<div class="column-3-hand">
 						<span class="left-info-text">Krvni tlak:</span>
 					</div>				
-					<div class="topcoat-grid__column--auto">
+					<div class="column-auto-hand">
 						<span class="right-info-text">123/80 mm Hg</span>
 					</div>
 				</div>		
 
-				<div class="topcoat-grid__row text-shadow">
-					<div class="topcoat-grid__column--3">
+				<div class="row text-shadow">
+					<div class="column-3-hand">
 						<span class="left-info-text">Utrip:</span>
 					</div>				
-					<div class="topcoat-grid__column--auto">
+					<div class="column-auto-hand">
 						<span class="right-info-text">75</span>
 					</div>
 				</div>		
@@ -82,7 +82,7 @@
 		</div>
 
 <!-- personal doctors -->
-		<div id="personalDoctors" class="topcoat-grid__column--auto right-container" style="display: none;">
+		<div id="personalDoctors" class="column-auto-hand right-container" style="display: none;">
 			<div class="right-content text-shadow">
 				<header>
 					<h2>Osebni zdravnik</h2>
@@ -150,7 +150,7 @@
 		</div>
 
 <!-- personal health card -->
-		<div id="personalHealthCard" class="topcoat-grid__column--auto right-container" style="display: none;">
+		<div id="personalHealthCard" class="column-auto-hand right-container" style="display: none;">
 			<div class="right-content text-shadow">
 				<header>
 					<h2>Bolezni</h2>

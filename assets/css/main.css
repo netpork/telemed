@@ -74,6 +74,7 @@ body {
 			position: absolute;
 			top: 5%;
 			left: 5%;
+			-webkit-user-select: none;
 		}
 
 		.menu-content section {
@@ -214,9 +215,14 @@ body {
 
 	.right-content {
 		color: black;
+		margin-left: 20px;
 	}
 		.right-content section {
 			margin-bottom: 20px;
+		}
+
+		.right-content section img {
+			margin-top: 20px;
 		}
 
 		.left-info-text {
@@ -289,4 +295,19 @@ body {
 ::-webkit-scrollbar-thumb
 {
 	background-color: #777;
+}
+
+
+
+/* fix for shelf button in the main menu */
+.topcoat-icon-button--quiet:active,
+.topcoat-icon-button--quiet:hover,
+.topcoat-icon-button--quiet:focus:active,
+.topcoat-icon-button--large--quiet:active,
+.topcoat-icon-button--large--quiet:focus:active {
+	color: #000;
+	text-shadow: 0 1px #fff;
+	background-color: transparent;
+	border: none;
+	box-shadow: none;
 }

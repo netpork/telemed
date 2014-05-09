@@ -2,6 +2,7 @@ Telemed.Menu = (function(){
 	'use strict';
 
 	var badges,
+	cards,
 	shelfButton,
 	shelfContainer,
 	shelfVisible = false,
@@ -41,7 +42,9 @@ Telemed.Menu = (function(){
 		badges = menuContent.find('.badge');
 		shelfButton = menuContent.find('#shelf');
 		shelfContainer = $('.shelf-container');
-		menuContent.find('.card').on('click', touchHandler);
+		// events
+		cards = menuContent.find('.card');
+		cards.on('click', touchHandler);
 		shelfButton.on('click', shelfHandler);
 
 		// context.partial('assets/templates/menu/index.ms', menuData).then(function(){
@@ -93,7 +96,7 @@ Telemed.Menu = (function(){
 	}
 
 	function shelfBlur() {
-		shelfButton.blur();
+		cards[0].focus();
 	}
 
 	function touchHandler(e) {
@@ -128,6 +131,7 @@ Telemed.Menu = (function(){
 		findCard: findCardIndex,
 		isBadgeVisible: isBadgeVisible,
 		touch: touchHandler,
+		shelfBlur: shelfBlur,
 
 		getMenuContent: function() {
 			return menuContent;

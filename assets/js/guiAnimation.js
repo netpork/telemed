@@ -77,7 +77,8 @@ Telemed.guiAnim = (function($){
 	function hideShelf(shelf) {
 		TweenLite.to(panels[0], 0.2, {x: 0, opacity: 1, onComplete: function() {
 			$(shelf).toggleClass('tm-hidden');
-			$(Telemed.Menu.getShelfButton()).blur();
+			// $(Telemed.Menu.getShelfButton()).blur();
+			// Telemed.Menu.shelfBlur();
 		}});
 	}
 
