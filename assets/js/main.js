@@ -69,7 +69,7 @@ var Telemed = (function($){
 			'Game Over',            // title
 			'Done'                  // buttonName
 		);
-*/
+*/		
 		app.debug = true;
 		app.run('#/');
 	}, false);

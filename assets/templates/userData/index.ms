@@ -13,7 +13,7 @@
 	</header>
 
 
-	<section class="row" style="height: 89%; background-color: whiteSmoke;">
+	<section class="row" style="height: 91%; background-color: whiteSmoke;">
 		<div class="column-3-hand left-container text-shadow">
 			
 			<section id="sidebar-menu" class="left-content">

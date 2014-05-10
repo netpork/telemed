@@ -304,6 +304,7 @@ body {
 .topcoat-icon-button--quiet:hover,
 .topcoat-icon-button--quiet:focus:active,
 .topcoat-icon-button--large--quiet:active,
+.topcoat-icon-button--large--quiet:hover,
 .topcoat-icon-button--large--quiet:focus:active {
 	color: #000;
 	text-shadow: 0 1px #fff;
