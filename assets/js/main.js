@@ -47,33 +47,42 @@ var Telemed = (function($){
 				setInitCallback(Telemed.userData.initialize);
 				Telemed.guiAnim.show('userData');
 			});
+
+			// measure route
+			this.get('#/measures', function() {
+				mainContext = this;
+				setCurrentPage('measures');
+				setInitCallback(Telemed.measures.initialize);
+				Telemed.guiAnim.show('measures');
+			});
+
 		});
 	}
 
 	// START ------------------------------------------------------------------------------------------------------------------------
-/*	$(function(){
+	$(function(){
 		initialize();
 //		alert('skrin ' + width + ' ' + height);
 		app.debug = true;
 		app.run('#/');
 	});
-*/
 
 
+/*
 	document.addEventListener('deviceready', function() {
 		initialize();
 		
-/*		navigator.notification.alert(
+		navigator.notification.alert(
 			'skrub w=' + width + ' h=' + height,  // message
 			null,         // callback
 			'Game Over',            // title
 			'Done'                  // buttonName
 		);
-*/		
+		
 		app.debug = true;
 		app.run('#/');
 	}, false);
-
+*/
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 /*	function handleHammer(e) {

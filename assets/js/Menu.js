@@ -16,16 +16,20 @@ Telemed.Menu = (function(){
 			text: "Moji podatki"
 		},
 		measures: {
-			text: "Meritve", action: "#"
+			text: "Meritve",
+			action: "#"
 		},
 		reminders: {
-			text: "Opomniki", action: "#"
+			text: "Opomniki",
+			action: "#"
 		},
 		communication: {
-			text: "Komunikacija", action: "#"
+			text: "Komunikacija",
+			action: "#"
 		},
 		info: {
-			text: "Informacije", action: "#"
+			text: "Informacije",
+			action: "#"
 		}
 	};
 
@@ -33,8 +37,12 @@ Telemed.Menu = (function(){
 		app = Telemed.getApp();
 		context = Telemed.getMainContext();
 		setUpMenu();
-		Telemed.Menu.setBadgeCount('measures', '3');
-		Telemed.Menu.setBadgeOn('measures');
+
+		// set badges count and turn them on
+		Telemed.Menu.setBadgeCount('reminders', '3');
+		Telemed.Menu.setBadgeCount('communication', '2');
+		Telemed.Menu.setBadgeOn('reminders');
+		Telemed.Menu.setBadgeOn('communication');
 	}
 
 	function setUpMenu() {

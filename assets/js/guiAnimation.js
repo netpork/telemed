@@ -83,7 +83,7 @@ Telemed.guiAnim = (function($){
 	}
 
 	function removeShelf() {
-		$('.shelf-container').remove();	
+		$('.shelf-container').remove();
 	}
 
 	return {

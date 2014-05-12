@@ -24,6 +24,25 @@ Telemed.sidebarMenu = (function($){
 			cardInfo: 'personalHealthCard',
 			text: 'Karton'
 		}
+	],
+
+	measures = [
+		{
+			cardInfo: 'weight',
+			text: 'Teža'
+		},
+		{
+			cardInfo: 'sugar',
+			text: 'Sladkor'
+		},
+		{
+			cardInfo: 'preasure',
+			text: 'Tlak'
+		},
+		{
+			cardInfo: 'status',
+			text: 'Počutje'
+		}
 	]
 
 	;
@@ -120,6 +139,10 @@ Telemed.sidebarMenu = (function($){
 		
 		getUserDataMenu: function() {
 			return userData;
+		},
+		
+		getMeasuresMenu: function() {
+			return measures;
 		}
 	};
 
