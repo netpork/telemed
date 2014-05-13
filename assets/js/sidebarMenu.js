@@ -36,7 +36,7 @@ Telemed.sidebarMenu = (function($){
 			text: 'Sladkor'
 		},
 		{
-			cardInfo: 'preasure',
+			cardInfo: 'pressure',
 			text: 'Tlak'
 		},
 		{
@@ -83,7 +83,7 @@ Telemed.sidebarMenu = (function($){
 		if (newMenu === oldMenu) return;
 		
 		setActive(this);
-		menuHandler($('#' + oldMenu), $('#' + newMenu));
+		menuHandler($('#' + oldMenu), $('#' + newMenu), newMenu);
 		oldMenu = newMenu;
 	}
 

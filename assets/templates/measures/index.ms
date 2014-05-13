@@ -24,6 +24,13 @@
 <!-- measures -->
 		<div id="measuresContainer" class="column-auto-hand right-container" style="display: block;">
 			<div id="graph" class="text-shadow"></div>
+			
+<!-- button for insert -->
+			<div id="insertButton" class="row end-hand" style="margin-top: 20px; visibility: hidden;">
+				<div class="column-2-hand">
+					<button class="topcoat-button--cta">Vnos</button>
+				</div>
+			</div>
 		</div>
 
 	</section>

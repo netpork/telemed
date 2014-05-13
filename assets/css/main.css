@@ -297,7 +297,13 @@ body {
 	background-color: #777;
 }
 
+.hide {
+	display: none;
+}
 
+.show {
+	display: block;
+}
 
 /* fix for shelf button in the main menu */
 .topcoat-icon-button--quiet:active,
