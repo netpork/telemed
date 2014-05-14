@@ -2,7 +2,12 @@ Telemed.measures = (function(){
 	'use strict';
 
 	var container,
-	insertButton
+	insertButton,
+	pressureMorningData = [[getMyDate(-4), 130], [getMyDate(-3), 120], [getMyDate(-2), 120], [getMyDate(-1), 135]],
+	pressureEveningData = [[getMyDate(-4), 125], [getMyDate(-3), 135], [getMyDate(-2), 130], [getMyDate(-1), 125]],
+	systolic,
+	diastolic,
+	buttonEventsInitialized = false
 	;
 
 	function initialize() {
@@ -11,6 +16,7 @@ Telemed.measures = (function(){
 		container = $('#graph');
 		insertButton = $('#insertButton');
 		showWeightGraph();
+		// showPressureGraph();
 	}
 
 	function menuHandler(oldPage, newPage, name) {
@@ -26,11 +32,13 @@ Telemed.measures = (function(){
 				break;
 			case 'pressure':
 				showPressureGraph();
+				insertPressureData();
+				testPressureNewMeasures();
 				break;
 			case 'status':
 				showPieStatus()
 
-				TweenLite.set(insertButton, {opacity: 0});
+				// TweenLite.set(insertButton, {opacity: 0});
 				TweenLite.to(insertButton, 1.0, {autoAlpha: 1, delay: 1});
 				break;
 		}
@@ -88,13 +96,105 @@ Telemed.measures = (function(){
 			series: [
 				{
 					name: 'Zjutraj',
-					data: [[getMyDate(-3), 130], [getMyDate(-2), 120], [getMyDate(-1), 120], [getMyDate(0), 135]]
+			// 		data: [[getMyDate(-3), 130], [getMyDate(-2), 120], [getMyDate(-1), 120], [getMyDate(0), 135]]
 				},
 				{
 					name: 'Zvečer',
-					data: [[getMyDate(-3), 125], [getMyDate(-2), 135], [getMyDate(-1), 125], [getMyDate(0), 120]]
+			// 		data: [[getMyDate(-3), 125], [getMyDate(-2), 135], [getMyDate(-1), 125], [getMyDate(0), 120]]
 				}
 			]
+		});
+
+	}
+
+	function testPressureNewMeasures() {
+		var chart = container.highcharts();
+		
+		if (chart.series[0].data.length <= 4) {
+			container.hide();
+
+			if (!buttonEventsInitialized) doPressureInputs();
+			$('#pressureInsertPage1').show();
+		}
+	}
+
+
+	function doPressureInputs() {
+		// setup button events
+		
+		$('#measuresContainer').find('.pressure-button').on('click', function(e) {
+			var which = $(this).data('button');
+			
+			switch(which) {
+				case 'no':
+					// back to graph
+					$('.pressure-page').hide();
+					insertPressureData();
+					container.show();
+					break;
+				
+				case 'yes':
+					$('#pressureInsertPage1').hide();
+					$('#pressureInsertPage2').show();
+					break;
+				
+				case 'next':
+					systolic = $('#systolic').val();
+					
+					// test systolic value
+					if (systolic >= 70 && systolic <= 200) {
+						$('#pressureInsertPage2').hide();
+						$('#pressureInsertPage3').show();
+					} else {
+						// error
+						$('#systolic').val('napaka!');
+					}
+
+					break;
+				
+				case 'back':
+					$('#pressureInsertPage3').hide();
+					$('#pressureInsertPage2').show();
+					break;
+				
+				case 'save':
+					diastolic = $('#diastolic').val();
+					
+					// test diastolic value
+					if (diastolic >= 50 && diastolic <= 100) {
+						$('#pressureInsertPage3').hide();
+						
+						// add new values to graph
+						pressureMorningData.push([getMyDate(0), parseInt(systolic, 10)]);
+						insertPressureData();
+						// $('.pressure-page').hide();
+						container.show();
+						// hide the keyboard
+						document.activeElement.blur();
+					} else {
+						// error
+						$('#diastolic').val('napaka!');
+					}
+
+					break;
+			}
+
+		});
+
+		buttonEventsInitialized = true;
+
+	}
+
+	function insertPressureData() {
+		console.log('call');
+		var chart = container.highcharts();
+		
+		$.each(pressureMorningData, function(index, value) {
+			chart.series[0].addPoint(value);
+		});
+
+		$.each(pressureEveningData, function(index, value) {
+			chart.series[1].addPoint(value);
 		});
 	}
 
