@@ -60,15 +60,15 @@ var Telemed = (function($){
 	}
 
 	// START ------------------------------------------------------------------------------------------------------------------------
-/*	$(function(){
+	$(function(){
 		initialize();
 //		alert('skrin ' + width + ' ' + height);
 		app.debug = true;
 		app.run('#/');
 	});
-*/
 
 
+/*
 	document.addEventListener('deviceready', function() {
 		initialize();
 		
@@ -82,7 +82,7 @@ var Telemed = (function($){
 		app.debug = true;
 		app.run('#/');
 	}, false);
-
+*/
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 /*	function handleHammer(e) {

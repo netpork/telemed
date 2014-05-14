@@ -33,7 +33,6 @@ Telemed.guiAnim = (function($){
 	}
 
 	function scroll() {
-		
 		// instant display for development 
 		if (panels.length < 2) {
 			$(panels[0]).removeClass('tm-hidden');

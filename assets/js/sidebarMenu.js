@@ -7,7 +7,7 @@ Telemed.sidebarMenu = (function($){
 	currentMenu,
 	newMenu,
 	oldMenu,
-	menuHandler, 
+	menuHandler,
 	templatesPath ='assets/templates/',
 	tweenBusy = false,
 

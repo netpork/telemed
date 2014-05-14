@@ -98,10 +98,160 @@
 
 		</div>
 
+
+<!-- status insert page 1 -->
+	<div id="statusPage1" class="" style="display: none;">
+		<div class="row">
+			<div class="offset-10-hand">
+				<p class="pagination" style="height: 1rem;">1/3</p>
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 2rem;">
+			<div class="offset-1-hand">
+				<p class="page-titles">Ali vas mučijo glavoboli?</p>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Nikoli
+				</label>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Včasih
+				</label>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Pogosto
+				</label>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top: 20px">
+			<div class="offset-10-hand column-2-hand">
+				<button data-button="next" class="pressure-button topcoat-button--large--cta">Naprej</button>
+			</div>
+		</div>
+	</div>
+
+<!-- status insert page 2 -->
+	<div id="statusPage2" class="" style="display: none;">
+		<div class="row">
+			<div class="offset-10-hand">
+				<p class="pagination" style="height: 1rem;">2/3</p>
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 2rem;">
+			<div class="offset-1-hand">
+				<p class="page-titles">Kako se počutite?</p>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Dobro
+				</label>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Slabo
+				</label>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Ne vem
+				</label>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top: 20px">
+			<div class="column-2-hand">
+				<button data-button="back" class="pressure-button topcoat-button--large--cta">Nazaj</button>
+			</div>
+			<div class="offset-8-hand column-2-hand">
+				<button data-button="save" class="pressure-button topcoat-button--large--cta">Naprej</button>
+			</div>
+		</div>
+	</div>
+
+<!-- status insert page 3 -->
+	<div id="statusPage3" class="" style="display: none;">
+		<div class="row">
+			<div class="offset-10-hand">
+				<p class="pagination" style="height: 1rem;">3/3</p>
+			</div>
+		</div>
+		<div class="row" style="margin-bottom: 2rem;">
+			<div class="offset-1-hand">
+				<p class="page-titles">Ali se ponoči pogosto zbujate?</p>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Nikoli
+				</label>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Včasih
+				</label>
+			</div>
+		</div>
+		<div class="row radio-rows">
+			<div class="offset-1-hand">
+				<label class="topcoat-radio-button">
+					<input type="radio" name="topcoat">
+  					<div class="topcoat-radio-button__checkmark"></div>
+  					Zelo pogosto
+				</label>
+			</div>
+		</div>
+
+		<div class="row" style="margin-top: 20px">
+			<div class="column-2-hand">
+				<button data-button="back" class="pressure-button topcoat-button--large--cta">Nazaj</button>
+			</div>
+			<div class="offset-8-hand column-2-hand">
+				<button data-button="save" class="pressure-button topcoat-button--large--cta">Zaključi</button>
+			</div>
+		</div>
+	</div>
+
+
+
 <!-- button for status insert -->
 			<div id="insertButton" class="row end-hand" style="margin-top: 20px; visibility: hidden; opacity: 0;">
 				<div class="column-2-hand">
-					<button class="topcoat-button--cta">Vnos</button>
+					<button id="insertStatusData" class="topcoat-button--cta">Vnos</button>
 				</div>
 			</div>
 		</div>

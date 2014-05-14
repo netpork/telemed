@@ -1,5 +1,11 @@
 Telemed.measures = (function(){
 	'use strict';
+	
+	function getMyDate(dayDelta) {
+		var myDate = new Date();
+		myDate.setTime(myDate.getTime() + dayDelta * 86400000);
+		return myDate.getTime();
+	}
 
 	var container,
 	insertButton,
@@ -15,8 +21,10 @@ Telemed.measures = (function(){
 		initBackButton();
 		container = $('#graph');
 		insertButton = $('#insertButton');
-		showWeightGraph();
+		// showWeightGraph();
 		// showPressureGraph();
+		// showPieStatus();
+		$('#statusPage3').show();
 	}
 
 	function menuHandler(oldPage, newPage, name) {
@@ -24,23 +32,23 @@ Telemed.measures = (function(){
 		TweenLite.to(insertButton, 0.5, {autoAlpha: 0});
 		
 		switch(name) {
-			case 'weight':
-				showWeightGraph();
-				break;
-			case 'sugar':
-				showSugarGraph();
-				break;
-			case 'pressure':
-				showPressureGraph();
-				insertPressureData();
-				testPressureNewMeasures();
-				break;
-			case 'status':
-				showPieStatus()
+		case 'weight':
+			showWeightGraph();
+			break;
+		case 'sugar':
+			showSugarGraph();
+			break;
+		case 'pressure':
+			showPressureGraph();
+			insertPressureData();
+			testPressureNewMeasures();
+			break;
+		case 'status':
+			showPieStatus();
 
-				// TweenLite.set(insertButton, {opacity: 0});
-				TweenLite.to(insertButton, 1.0, {autoAlpha: 1, delay: 1});
-				break;
+			// TweenLite.set(insertButton, {opacity: 0});
+			TweenLite.to(insertButton, 1.0, {autoAlpha: 1, delay: 1});
+			break;
 		}
 	}
 
@@ -110,10 +118,13 @@ Telemed.measures = (function(){
 	function testPressureNewMeasures() {
 		var chart = container.highcharts();
 		
+		// test how many pressure entries
 		if (chart.series[0].data.length <= 4) {
 			container.hide();
 
+			// setup button events only once
 			if (!buttonEventsInitialized) doPressureInputs();
+			// show the first page for pressure insert 
 			$('#pressureInsertPage1').show();
 		}
 	}
@@ -126,59 +137,58 @@ Telemed.measures = (function(){
 			var which = $(this).data('button');
 			
 			switch(which) {
-				case 'no':
-					// back to graph
-					$('.pressure-page').hide();
+			case 'no':
+				// back to graph
+				$('.pressure-page').hide();
+				insertPressureData();
+				container.show();
+				break;
+			
+			case 'yes':
+				$('#pressureInsertPage1').hide();
+				$('#pressureInsertPage2').show();
+				break;
+			
+			case 'next':
+				systolic = $('#systolic').val();
+				
+				// test systolic value
+				if (systolic >= 70 && systolic <= 200) {
+					$('#pressureInsertPage2').hide();
+					$('#pressureInsertPage3').show();
+				} else {
+					// error
+					$('#systolic').val('napaka!');
+				}
+
+				break;
+			
+			case 'back':
+				$('#pressureInsertPage3').hide();
+				$('#pressureInsertPage2').show();
+				break;
+			
+			case 'save':
+				diastolic = $('#diastolic').val();
+				
+				// test diastolic value
+				if (diastolic >= 50 && diastolic <= 100) {
+					$('#pressureInsertPage3').hide();
+					
+					// add new values to graph
+					pressureMorningData.push([getMyDate(0), parseInt(systolic, 10)]);
 					insertPressureData();
 					container.show();
-					break;
-				
-				case 'yes':
-					$('#pressureInsertPage1').hide();
-					$('#pressureInsertPage2').show();
-					break;
-				
-				case 'next':
-					systolic = $('#systolic').val();
-					
-					// test systolic value
-					if (systolic >= 70 && systolic <= 200) {
-						$('#pressureInsertPage2').hide();
-						$('#pressureInsertPage3').show();
-					} else {
-						// error
-						$('#systolic').val('napaka!');
-					}
+					// $('.pressure-page').hide();
+					// hide the keyboard
+					document.activeElement.blur();
+				} else {
+					// error
+					$('#diastolic').val('napaka!');
+				}
 
-					break;
-				
-				case 'back':
-					$('#pressureInsertPage3').hide();
-					$('#pressureInsertPage2').show();
-					break;
-				
-				case 'save':
-					diastolic = $('#diastolic').val();
-					
-					// test diastolic value
-					if (diastolic >= 50 && diastolic <= 100) {
-						$('#pressureInsertPage3').hide();
-						
-						// add new values to graph
-						pressureMorningData.push([getMyDate(0), parseInt(systolic, 10)]);
-						insertPressureData();
-						// $('.pressure-page').hide();
-						container.show();
-						// hide the keyboard
-						document.activeElement.blur();
-					} else {
-						// error
-						$('#diastolic').val('napaka!');
-					}
-
-					break;
+				break;
 			}
-
 		});
 
 		buttonEventsInitialized = true;
@@ -367,18 +377,14 @@ Telemed.measures = (function(){
 		});
 	}
 
-	function getMyDate(dayDelta) {
-		var myDate = new Date();
-		myDate.setTime(myDate.getTime() + dayDelta * 86400000);
-		return myDate.getTime();
-	}
+
 
 	function initBackButton() {
 		$('#backButton').on('click', function(){
-			// Telemed.getMainContext().redirect('#/');
-			var chart = container.highcharts();
-			chart.series[0].addPoint([getMyDate(1), 120]);
-			chart.series[1].addPoint([getMyDate(1), 130]);
+			Telemed.getMainContext().redirect('#/');
+			// var chart = container.highcharts();
+			// chart.series[0].addPoint([getMyDate(1), 120]);
+			// chart.series[1].addPoint([getMyDate(1), 130]);
 		});
 	}
 
