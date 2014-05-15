@@ -42,7 +42,7 @@
 	        <span class="topcoat-navigation-bar__item user-container">
 	        	<img src="assets/img/user.jpg" width="46px" height="46px" class="user-icon" alt="user picture">
 	        </span>
-	        <h1 class="topcoat-navigation-bar__title text-shadow">Random Long Hair Name</h1>
+	        <h1 class="topcoat-navigation-bar__title text-shadow">Ana Vzorčnica</h1>
 	    </div>
 	</div>
 

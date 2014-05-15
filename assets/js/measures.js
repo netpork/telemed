@@ -417,7 +417,8 @@ Telemed.measures = (function(){
 
 		insertStatus.on('click', function(e) {
 			container.hide();
-			$(this).css('opacity', 0);
+			// insertButton.css('opacity', 0);
+			TweenLite.set(insertButton, {opacity: 0});
 			$('#statusPage1').show();
 		});
 	}
