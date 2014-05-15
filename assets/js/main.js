@@ -61,6 +61,7 @@ var Telemed = (function($){
 
 	// START ------------------------------------------------------------------------------------------------------------------------
 	$(function(){
+		FastClick.attach(document.body);
 		initialize();
 //		alert('skrin ' + width + ' ' + height);
 		app.debug = true;

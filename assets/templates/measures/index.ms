@@ -100,7 +100,7 @@
 
 
 <!-- status insert page 1 -->
-	<div id="statusPage1" class="" style="display: none;">
+	<div id="statusPage1" class="status-page" style="display: none;">
 		<div class="row">
 			<div class="offset-10-hand">
 				<p class="pagination" style="height: 1rem;">1/3</p>
@@ -114,7 +114,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="headache">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Nikoli
 				</label>
@@ -123,7 +123,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="headache">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Včasih
 				</label>
@@ -132,7 +132,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="headache">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Pogosto
 				</label>
@@ -141,13 +141,13 @@
 
 		<div class="row" style="margin-top: 20px">
 			<div class="offset-10-hand column-2-hand">
-				<button data-button="next" class="pressure-button topcoat-button--large--cta">Naprej</button>
+				<button data-button="nextToSecond" class="status-button topcoat-button--large--cta">Naprej</button>
 			</div>
 		</div>
 	</div>
 
 <!-- status insert page 2 -->
-	<div id="statusPage2" class="" style="display: none;">
+	<div id="statusPage2" class="status-page" style="display: none;">
 		<div class="row">
 			<div class="offset-10-hand">
 				<p class="pagination" style="height: 1rem;">2/3</p>
@@ -161,7 +161,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="feeling">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Dobro
 				</label>
@@ -170,7 +170,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="feeling">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Slabo
 				</label>
@@ -179,7 +179,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="feeling">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Ne vem
 				</label>
@@ -188,16 +188,16 @@
 
 		<div class="row" style="margin-top: 20px">
 			<div class="column-2-hand">
-				<button data-button="back" class="pressure-button topcoat-button--large--cta">Nazaj</button>
+				<button data-button="backToFirst" class="status-button topcoat-button--large--cta">Nazaj</button>
 			</div>
 			<div class="offset-8-hand column-2-hand">
-				<button data-button="save" class="pressure-button topcoat-button--large--cta">Naprej</button>
+				<button data-button="nextToThird" class="status-button topcoat-button--large--cta">Naprej</button>
 			</div>
 		</div>
 	</div>
 
 <!-- status insert page 3 -->
-	<div id="statusPage3" class="" style="display: none;">
+	<div id="statusPage3" class="status-page" style="display: none;">
 		<div class="row">
 			<div class="offset-10-hand">
 				<p class="pagination" style="height: 1rem;">3/3</p>
@@ -211,7 +211,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="wake">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Nikoli
 				</label>
@@ -220,7 +220,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="wake">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Včasih
 				</label>
@@ -229,7 +229,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="topcoat">
+					<input type="radio" name="wake">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Zelo pogosto
 				</label>
@@ -238,10 +238,10 @@
 
 		<div class="row" style="margin-top: 20px">
 			<div class="column-2-hand">
-				<button data-button="back" class="pressure-button topcoat-button--large--cta">Nazaj</button>
+				<button data-button="backToSecond" class="status-button topcoat-button--large--cta">Nazaj</button>
 			</div>
 			<div class="offset-8-hand column-2-hand">
-				<button data-button="save" class="pressure-button topcoat-button--large--cta">Zaključi</button>
+				<button data-button="save" class="status-button topcoat-button--large--cta">Zaključi</button>
 			</div>
 		</div>
 	</div>

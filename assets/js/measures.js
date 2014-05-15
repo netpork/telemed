@@ -8,7 +8,7 @@ Telemed.measures = (function(){
 	}
 
 	var container,
-	insertButton,
+	insertStatus,
 	pressureMorningData = [[getMyDate(-4), 130], [getMyDate(-3), 120], [getMyDate(-2), 120], [getMyDate(-1), 135]],
 	pressureEveningData = [[getMyDate(-4), 125], [getMyDate(-3), 135], [getMyDate(-2), 130], [getMyDate(-1), 125]],
 	systolic,
@@ -20,11 +20,11 @@ Telemed.measures = (function(){
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getMeasuresMenu(), menuHandler);
 		initBackButton();
 		container = $('#graph');
-		insertButton = $('#insertButton');
-		// showWeightGraph();
+		insertStatus = $('#insertButton');
+		initInsertStatusButton();
+		showWeightGraph();
 		// showPressureGraph();
 		// showPieStatus();
-		$('#statusPage3').show();
 	}
 
 	function menuHandler(oldPage, newPage, name) {
@@ -45,6 +45,7 @@ Telemed.measures = (function(){
 			break;
 		case 'status':
 			showPieStatus();
+
 
 			// TweenLite.set(insertButton, {opacity: 0});
 			TweenLite.to(insertButton, 1.0, {autoAlpha: 1, delay: 1});
@@ -365,13 +366,8 @@ Telemed.measures = (function(){
 				type: 'pie',
 				name: 'Počutje',
 				data: [
-					{
-						name: 'Dobro',
-						y: 62.8,
-						sliced: true,
-						selected: true
-					},
-					['Slabo',    100 - 62.8],
+					['Dobro', 62.8],
+					['Slabo', 100 - 62.8]
 				]
 			}]
 		});
@@ -385,6 +381,44 @@ Telemed.measures = (function(){
 			// var chart = container.highcharts();
 			// chart.series[0].addPoint([getMyDate(1), 120]);
 			// chart.series[1].addPoint([getMyDate(1), 130]);
+		});
+	}
+
+	function initInsertStatusButton() {
+		$('.status-button').on('click', function(e) {
+			var whichButton = $(this).data('button');
+
+			switch (whichButton) {
+			case 'nextToSecond':
+				$('#statusPage1').hide();
+				$('#statusPage2').show();
+				break;
+			case 'backToFirst':
+				$('#statusPage2').hide();
+				$('#statusPage1').show();
+				break;
+			case 'nextToThird':
+				$('#statusPage2').hide();
+				$('#statusPage3').show();
+				break;
+			case 'save':
+				var chart = container.highcharts();
+				chart.series[0].setData([['Dobro', 32.8], ['Slabo', 100 - 32.8]]);
+				$('#statusPage3').hide();
+				container.show();
+				break;
+			case 'backToSecond':
+				$('#statusPage3').hide();
+				$('#statusPage2').show();
+				break;
+			}
+
+		});
+
+		insertStatus.on('click', function(e) {
+			container.hide();
+			$(this).css('opacity', 0);
+			$('#statusPage1').show();
 		});
 	}
 

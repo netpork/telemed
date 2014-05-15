@@ -25,6 +25,8 @@
     "tweenlite-css": ">=1.11.5",
     "normalize-css": ">=3.0.1",
     "topcoat": "*",
-    "flexboxgrid": ">=3.0.1"
+    "flexboxgrid": ">=3.0.1",
+    "jquery.transit": ">=0.9.9",
+    "fastclick":">=1.0.1"
   }
 }
