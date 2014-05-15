@@ -13,12 +13,13 @@ Telemed.measures = (function(){
 	pressureEveningData = [[getMyDate(-4), 125], [getMyDate(-3), 135], [getMyDate(-2), 130], [getMyDate(-1), 125]],
 	systolic,
 	diastolic,
-	buttonEventsInitialized = false
+	buttonEventsInitialized
 	;
 
 	function initialize() {
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getMeasuresMenu(), menuHandler);
 		initBackButton();
+		buttonEventsInitialized = false;
 		container = $('#graph');
 		insertStatus = $('#insertButton');
 		initInsertStatusButton();

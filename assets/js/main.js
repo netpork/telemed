@@ -13,6 +13,7 @@ var Telemed = (function($){
 	;
 
 	function initialize() {
+		setViewport();
 		mainContainer = $('#main');
 		setResizeEvent();
 		setBrowserDimensions();
@@ -124,6 +125,18 @@ var Telemed = (function($){
 
 	function setTouchCallback(fn) {
 		touchCallback = fn;
+	}
+
+	function setViewport() {
+		if (window.deviceIsIOS) {
+			$('head').append(
+				'<meta name="viewport" content="user-scalable=no, initial-scale=1, maximum-scale=1, minimum-scale=1, target-densitydpi=device-dpi">'
+			);
+		} else {
+			$('head').append(
+				'<meta name="viewport" content="width=device-width, height=device-height,initial-scale=1.0, maximum-scale=1.0, user-scalable=no">'
+			);
+		}
 	}
 
 	// API ------------------------------------------------------------------------------------------------------------------------
