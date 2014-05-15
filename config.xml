@@ -75,7 +75,7 @@
     <!-- Define app icon for each platform. -->
      <!-- <icon src="icon-72.png" /> -->
 
-    <icon src="icon-72.png" gap:platform="android" gap:density="mdpi" />
+    <icon src="icon-48.png" gap:platform="android" />
     <icon src="icon-72.png" gap:platform="ios" width="72" height="72" />
 
 
