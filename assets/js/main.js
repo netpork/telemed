@@ -73,6 +73,7 @@ var Telemed = (function($){
 
 	document.addEventListener('deviceready', function() {
 		FastClick.attach(document.body);
+		StatusBar.overlaysWebView(false);
 		initialize();
 		
 /*		navigator.notification.alert(
