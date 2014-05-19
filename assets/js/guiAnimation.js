@@ -13,7 +13,7 @@ Telemed.guiAnim = (function($){
 			Telemed.getMainContext().load(templatesPath + page + '/index.ms').appendTo(Telemed.getMainContainer())
 			.then(function() {
 				getPanels();
-				Telemed.getInitCallback()();
+				// Telemed.getInitCallback()();
 				scroll();
 			});
 		} else {
@@ -49,6 +49,7 @@ Telemed.guiAnim = (function($){
 			removeShelf();
 		}});
 */
+		var compl = 0;
 		$(panels[1]).css({x: Telemed.getWidth()});
 		$(panels[1]).removeClass('tm-hidden');
 		$(panels).transition({
@@ -56,8 +57,12 @@ Telemed.guiAnim = (function($){
 			duration: 500,
 			easing: 'snap',
 			complete: function() {
-				panels[0].remove();
-				removeShelf();
+				if (++compl % 2 === 0) {
+					panels[0].remove();
+					removeShelf();
+					Telemed.getInitCallback()();
+					console.count('pera');
+				}
 			}
 		});
 	}
@@ -71,7 +76,7 @@ Telemed.guiAnim = (function($){
 		}});
 */
 		$(panels[0]).css({x: -Telemed.getWidth(), opacity: 1});
-		$(panels[0]).removeClass('tm-hidden');
+		// $(panels[0]).removeClass('tm-hidden');
 		panels.transition({
 			x: '+=' + Telemed.getWidth() / 2,
 			duration: 500,
