@@ -58,7 +58,8 @@ Telemed.guiAnim = (function($){
 			complete: function() {
 				panels[0].remove();
 				removeShelf();
-		}});
+			}
+		});
 	}
 
 	function scrollToMenu() {
@@ -71,13 +72,14 @@ Telemed.guiAnim = (function($){
 */
 		$(panels[0]).css({x: -Telemed.getWidth(), opacity: 1});
 		$(panels[0]).removeClass('tm-hidden');
-		$(panels).transition({
+		panels.transition({
 			x: '+=' + Telemed.getWidth() / 2,
 			duration: 500,
 			easing: 'snap',
 			complete: function() {
 				panels[1].remove();
-		}});
+			}
+		});
 	}
 
 	function forceGPU() {
