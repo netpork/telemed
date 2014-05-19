@@ -68,13 +68,15 @@ Telemed.sidebarMenu = (function($){
 		cards.on('click', touchMenuHandler);
 		
 		// set default classes from code since we are rendering partial
-		TweenLite.set(container, {perspective: 300});
+		// TweenLite.set(container, {perspective: 300});
 		$(cards[0]).toggleClass('mini-card-active mini-card-default');
+
 		// TweenLite.set($(cards[0], {rotationX: -360}));
 		cardActive = cards[0];
 	}
 
 	function touchMenuHandler(e) {
+		console.log('touch');
 		if (tweenBusy) return;
 
 		newMenu = $(this).data('card');
@@ -90,7 +92,32 @@ Telemed.sidebarMenu = (function($){
 	function setActive(el) {
 		// resetCards();
 		
-		TweenLite.to(cardActive, 0.25, {
+		tweenBusy = true;
+
+		$(cardActive).transition({
+			rotateX: '360deg',
+			perspective: '500px',
+			duration: 500,
+			complete: function() {
+				$(cardActive).toggleClass('mini-card-active mini-card-default');
+				$(cardActive).removeAttr('style');
+			}
+
+		});
+
+		$(el).transition({
+			rotateX: '-360deg',
+			perspective: '500px',
+			duration: 500,
+			complete: function() {
+				tweenBusy = false;
+				$(el).toggleClass('mini-card-active mini-card-default');
+				cardActive = el;
+				$(el).removeAttr('style');
+			}
+		});
+
+/*		TweenLite.to(cardActive, 0.25, {
 			rotationX: 270,
 			ease: Power3.easeOut,
 			onStart: function() {
@@ -126,6 +153,7 @@ Telemed.sidebarMenu = (function($){
 				});
 			}
 		});
+*/	
 	}
 
 	function resetCards() {

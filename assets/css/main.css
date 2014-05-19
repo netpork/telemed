@@ -115,7 +115,7 @@ body {
 			margin-bottom: 30px;
 		}
 
-		.left-container section .mini-card span {
+		.left-container section .mini-card-active span {
 			color: #08346e;
 			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
 			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
@@ -125,7 +125,7 @@ body {
 			/*display: inline-block;*/
 		}
 
-		.left-container section .mini-card-active span {
+		.left-container section .mini-card-default span {
 			color: #000;
 			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
 			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
@@ -135,15 +135,14 @@ body {
 			/*display: inline-block;*/
 		}
 
-		.mini-card-active {
+		.mini-card-default {
 			background: -webkit-radial-gradient(bottom, circle cover, #ffffff 0%, #aaa 100%);
 			border: 2px solid #aaa;
 		}
 		
-		.mini-card-default {
+		.mini-card-active {
 			background-color: #9fc5f8;
 			border: 2px solid #6fa8dc;
-			scale: 0;
 		}
 
 		.menu-rounded {
@@ -356,6 +355,14 @@ body {
 
 .show {
 	display: block;
+}
+
+.opacity-none {
+	opacity: 0;
+}
+
+.opacity-full {
+	opacity: 1;
 }
 
 /* fix for shelf button in the main menu */

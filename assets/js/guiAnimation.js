@@ -39,7 +39,7 @@ Telemed.guiAnim = (function($){
 			return;
 		}
 
-		forceGPU();
+/*		forceGPU();
 
 		TweenLite.set(panels[1], {x: Telemed.getWidth()});
 		$(panels[1]).removeClass('tm-hidden');
@@ -48,14 +48,35 @@ Telemed.guiAnim = (function($){
 			panels[0].remove();
 			removeShelf();
 		}});
+*/
+		$(panels[1]).css({x: Telemed.getWidth()});
+		$(panels[1]).removeClass('tm-hidden');
+		$(panels).transition({
+			x: '-=' + Telemed.getWidth() / 2,
+			duration: 500,
+			easing: 'snap',
+			complete: function() {
+				panels[0].remove();
+				removeShelf();
+		}});
 	}
 
 	function scrollToMenu() {
-		forceGPU();
+/*		forceGPU();
 		TweenLite.set(panels[0], {x: -Telemed.getWidth()});
 		$(panels[0]).removeClass('tm-hidden');
 		TweenLite.to([panels[0], panels[1]], 0.5, {x: "+=" + Telemed.getWidth(), onComplete: function() {
 			panels[1].remove();
+		}});
+*/
+		$(panels[0]).css({x: -Telemed.getWidth(), opacity: 1});
+		$(panels[0]).removeClass('tm-hidden');
+		$(panels).transition({
+			x: '+=' + Telemed.getWidth() / 2,
+			duration: 500,
+			easing: 'snap',
+			complete: function() {
+				panels[1].remove();
 		}});
 	}
 
@@ -64,21 +85,30 @@ Telemed.guiAnim = (function($){
 	}
 
 	function fadeInMenu() {
-		TweenLite.to('#menu', 1, {autoAlpha: 1, delay: 0.5});
+		// TweenLite.to('#menu', 1, {autoAlpha: 1, delay: 0.5});
+		var menu = Telemed.Menu.getMenuContainer();
+		menu.css({opacity: 0});
+		menu.transition({opacity: 1, duration: 1000, delay: 500});
 	}
 
 	function showShelf(shelf) {
 		getPanels();
 		$(shelf).toggleClass('tm-hidden');
-		TweenLite.to(panels[0], 0.2, {x: "+=" + shelfWidth, opacity: 0.6});
+		// TweenLite.to(panels[0], 0.2, {x: "+=" + shelfWidth, opacity: 0.6});
+		$(panels[0]).transition({x: "+=" + shelfWidth, opacity: 0.6, duration: 200});
 	}
 
 	function hideShelf(shelf) {
-		TweenLite.to(panels[0], 0.2, {x: 0, opacity: 1, onComplete: function() {
+/*		TweenLite.to(panels[0], 0.2, {x: 0, opacity: 1, onComplete: function() {
 			$(shelf).toggleClass('tm-hidden');
 			// $(Telemed.Menu.getShelfButton()).blur();
 			// Telemed.Menu.shelfBlur();
 		}});
+*/
+		$(panels[0]).transition({x: 0, opacity: 1, duration: 200, complete: function() {
+			$(shelf).toggleClass('tm-hidden');
+			}
+		});
 	}
 
 	function removeShelf() {

@@ -1,4 +1,4 @@
-<div id="menu" class="menu-container tm-panel tm-hidden">
+<div id="menu" class="menu-container tm-panel" style="opacity: 0">
 	<div class="menu-content">
 		
 		<section class="shelf-icon">

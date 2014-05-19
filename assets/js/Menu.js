@@ -7,6 +7,7 @@ Telemed.Menu = (function(){
 	shelfContainer,
 	shelfVisible = false,
 	menuContent,
+	menuContainer,
 	app,
 	context,
 	first = true,
@@ -46,6 +47,7 @@ Telemed.Menu = (function(){
 	}
 
 	function setUpMenu() {
+		menuContainer = $('#menu');
 		menuContent = $('div.menu-content');
 		badges = menuContent.find('.badge');
 		shelfButton = menuContent.find('#shelf');
@@ -140,6 +142,10 @@ Telemed.Menu = (function(){
 		isBadgeVisible: isBadgeVisible,
 		touch: touchHandler,
 		shelfBlur: shelfBlur,
+
+		getMenuContainer: function() {
+			return menuContainer;
+		},
 
 		getMenuContent: function() {
 			return menuContent;

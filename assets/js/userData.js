@@ -6,19 +6,33 @@ Telemed.userData = (function(){
 		initBackButton();
 	}
 
-	function rotate() {
-		TweenLite.to($('.mini-card')[0], 0.5, {rotationX: 360, scale: 1.1, transformOrigin:"center"});
-	}
-
 	function menuHandler(oldPage, newPage) {
 		// console.log(oldPage, newPage);
-		TweenLite.to(oldPage, 0.25, {opacity: 0, onComplete: function() {
+/*		TweenLite.to(oldPage, 0.25, {opacity: 0, onComplete: function() {
 			oldPage.hide();
 			TweenLite.set(newPage, {opacity: 0});
 			TweenLite.to(newPage, 0.25, {opacity: 1, onStart: function() {
 				newPage.show();
 			}});
 		}});
+*/
+		oldPage.transition({
+			opacity: 0,
+			duration: 250,
+			complete: function() {
+				oldPage.hide();
+				newPage.css({opacity: 0});
+				newPage.show();
+				
+				newPage.transition({
+					opacity: 1,
+					duration: 250
+				});				
+			}
+		});
+
+
+
 	}
 
 	function initBackButton() {
@@ -28,8 +42,7 @@ Telemed.userData = (function(){
 	}
 
 	return {
-		initialize: initialize,
-		rotate: rotate
+		initialize: initialize
 	};
 
 })();
