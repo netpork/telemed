@@ -16,7 +16,7 @@
 	<section class="row" style="height: 91%; background-color: whiteSmoke;">
 		<div class="column-3-hand left-container text-shadow">
 			
-			<section id="sidebar-menu" class="left-content">
+			<section id="sidebar-menu" class="left-content" style="opacity: 0">
 				
 <!-- 				<div data-card="personalData" id="dd" class="mini-card mini-card-active card-shadow menu-rounded">
 	<span class="">Osebni podatki</span>

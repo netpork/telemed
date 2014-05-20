@@ -9,8 +9,12 @@ Telemed.measures = (function(){
 
 	var container,
 	insertStatus,
-	pressureMorningData = [[getMyDate(-4), 130], [getMyDate(-3), 120], [getMyDate(-2), 120], [getMyDate(-1), 135]],
-	pressureEveningData = [[getMyDate(-4), 125], [getMyDate(-3), 135], [getMyDate(-2), 130], [getMyDate(-1), 125]],
+	// pressureMorningData = [[getMyDate(-4), 130], [getMyDate(-3), 120], [getMyDate(-2), 120], [getMyDate(-1), 135]],
+	// pressureEveningData = [[getMyDate(-4), 125], [getMyDate(-3), 135], [getMyDate(-2), 130], [getMyDate(-1), 125]],
+
+	pressureMorningData = [[getMyDate(-4), 130], [getMyDate(-3), 120], [getMyDate(-2), 135], [getMyDate(-1), 135]],
+	pressureEveningData = [[getMyDate(-4), 80], [getMyDate(-3), 75], [getMyDate(-2), 85], [getMyDate(-1), 90]],
+
 	systolic,
 	diastolic,
 	buttonEventsInitialized
@@ -30,8 +34,9 @@ Telemed.measures = (function(){
 
 	function menuHandler(oldPage, newPage, name) {
 		container.highcharts().destroy();
-		TweenLite.to(insertButton, 0.5, {autoAlpha: 0});
-		
+		// TweenLite.to(insertButton, 0.5, {autoAlpha: 0});
+		$(insertButton).hide();
+
 		switch(name) {
 		case 'weight':
 			showWeightGraph();
@@ -46,10 +51,9 @@ Telemed.measures = (function(){
 			break;
 		case 'status':
 			showPieStatus();
-
-
 			// TweenLite.set(insertButton, {opacity: 0});
-			TweenLite.to(insertButton, 1.0, {autoAlpha: 1, delay: 1});
+			// TweenLite.to(insertButton, 1.0, {autoAlpha: 1, delay: 1});
+			$(insertButton).show();
 			break;
 		}
 	}
@@ -60,7 +64,7 @@ Telemed.measures = (function(){
 				type: 'column',
 			},
 			title: {
-				text: 'Sistolični krvni tlak'
+				text: 'Krvni tlak'
 			},
 			credits: {
 				enabled: false
@@ -105,11 +109,11 @@ Telemed.measures = (function(){
 			},
 			series: [
 				{
-					name: 'Zjutraj',
+					name: 'Sistolični',
 			// 		data: [[getMyDate(-3), 130], [getMyDate(-2), 120], [getMyDate(-1), 120], [getMyDate(0), 135]]
 				},
 				{
-					name: 'Zvečer',
+					name: 'Diastolični',
 			// 		data: [[getMyDate(-3), 125], [getMyDate(-2), 135], [getMyDate(-1), 125], [getMyDate(0), 120]]
 				}
 			]
@@ -123,6 +127,7 @@ Telemed.measures = (function(){
 		// test how many pressure entries
 		if (chart.series[0].data.length <= 4) {
 			container.hide();
+			Telemed.sidebarMenu.menuOff();
 
 			// setup button events only once
 			if (!buttonEventsInitialized) doPressureInputs();
@@ -144,6 +149,7 @@ Telemed.measures = (function(){
 				$('.pressure-page').hide();
 				insertPressureData();
 				container.show();
+				Telemed.sidebarMenu.menuOn();
 				break;
 			
 			case 'yes':
@@ -162,7 +168,6 @@ Telemed.measures = (function(){
 					// error
 					$('#systolic').val('napaka!');
 				}
-
 				break;
 			
 			case 'back':
@@ -178,9 +183,13 @@ Telemed.measures = (function(){
 					$('#pressureInsertPage3').hide();
 					
 					// add new values to graph
+					// systolic
 					pressureMorningData.push([getMyDate(0), parseInt(systolic, 10)]);
+					// diastolic
+					pressureEveningData.push([getMyDate(0), parseInt(diastolic, 10)]);
 					insertPressureData();
 					container.show();
+					Telemed.sidebarMenu.menuOn();
 					// $('.pressure-page').hide();
 					// hide the keyboard
 					document.activeElement.blur();
@@ -407,6 +416,7 @@ Telemed.measures = (function(){
 				chart.series[0].setData([['Dobro', 32.8], ['Slabo', 100 - 32.8]]);
 				$('#statusPage3').hide();
 				container.show();
+				Telemed.sidebarMenu.menuOn();
 				break;
 			case 'backToSecond':
 				$('#statusPage3').hide();
@@ -419,8 +429,10 @@ Telemed.measures = (function(){
 		insertStatus.on('click', function(e) {
 			container.hide();
 			// insertButton.css('opacity', 0);
-			TweenLite.set(insertButton, {opacity: 0});
+			// TweenLite.set(insertButton, {opacity: 0});
+			$(insertButton).hide();
 			$('#statusPage1').show();
+			Telemed.sidebarMenu.menuOff();
 		});
 	}
 

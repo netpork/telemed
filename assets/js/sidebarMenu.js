@@ -10,6 +10,7 @@ Telemed.sidebarMenu = (function($){
 	menuHandler,
 	templatesPath ='assets/templates/',
 	tweenBusy = false,
+	menuLocked = false,
 
 	userData = [
 		{
@@ -43,6 +44,21 @@ Telemed.sidebarMenu = (function($){
 			cardInfo: 'status',
 			text: 'Počutje'
 		}
+	],
+
+	reminders = [
+		{
+			cardInfo: 'aspirin',
+			text: 'Aspirin'
+		},
+		{
+			cardInfo: 'novonorm',
+			text: 'NovoNorm'
+		},
+		{
+			cardInfo: 'ampril',
+			text: 'Ampril'
+		}
 	]
 
 	;
@@ -60,12 +76,13 @@ Telemed.sidebarMenu = (function($){
 		Telemed.getMainContext().renderEach(templatesPath + 'userData/minicard.ms', currentMenu)
 				.appendTo(container).then(function(){
 					prepareMenu();
+					initEvents();
+					fadeMenu();
 				});
 	}
 
 	function prepareMenu() {
 		cards = container.find('.mini-card');
-		cards.on('click', touchMenuHandler);
 		
 		// set default classes from code since we are rendering partial
 		// TweenLite.set(container, {perspective: 300});
@@ -75,9 +92,16 @@ Telemed.sidebarMenu = (function($){
 		cardActive = cards[0];
 	}
 
+	function initEvents() {
+		cards.on('click', touchMenuHandler);
+	}
+
+	function fadeMenu() {
+		$(container).transition({opacity: 1, duration: 500});
+	}
+
 	function touchMenuHandler(e) {
-		console.log('touch');
-		if (tweenBusy) return;
+		if (tweenBusy || menuLocked) return;
 
 		newMenu = $(this).data('card');
 		
@@ -156,6 +180,21 @@ Telemed.sidebarMenu = (function($){
 */	
 	}
 
+	function getActive() {
+		return container.find('.mini-card-active').data('card');
+	}
+
+	function removeActive() {
+		$(cardActive).transition({
+			scale: 0,
+			duration: 500,
+			complete: function() {
+				cardActive.remove();
+				prepareMenu();
+			}
+		});
+	}
+
 	function resetCards() {
 		$(cards).removeClass('mini-card-default mini-card-active');
 		$(cards).toggleClass('mini-card-default');
@@ -171,6 +210,22 @@ Telemed.sidebarMenu = (function($){
 		
 		getMeasuresMenu: function() {
 			return measures;
+		},
+
+		getRemindersMenu: function() {
+			return reminders;
+		},
+
+		getActiveSubmenu: getActive,
+
+		removeActiveMenu: removeActive,
+
+		menuOff: function() {
+			menuLocked = true;
+		},
+
+		menuOn: function() {
+			menuLocked = false;
 		}
 	};
 

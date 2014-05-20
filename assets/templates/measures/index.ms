@@ -16,7 +16,7 @@
 	<section class="row" style="height: 91%; background-color: whiteSmoke;">
 		<div class="column-3-hand left-container text-shadow">
 			
-			<section id="sidebar-menu" class="left-content"></section>
+			<section id="sidebar-menu" class="left-content" style="opacity: 0;"></section>
 	
 		</div>
 
@@ -32,10 +32,10 @@
 
 				<div class="row around-hand" style="margin-top: 40px;">
 					<div class="column-2-hand">
-						<button data-button="no" class="pressure-button topcoat-button--large">Ne</button>
+						<button data-button="no" class="pressure-button topcoat-button">Ne</button>
 					</div>
 					<div class="column-2-hand">
-						<button data-button="yes" class="pressure-button topcoat-button--large--cta">Da</button>
+						<button data-button="yes" class="pressure-button topcoat-button--cta">Da</button>
 					</div>
 				</div>
 
@@ -61,8 +61,8 @@
 			</div>
 
 			<div class="row" style="margin-top: 20px">
-				<div class="offset-10-hand column-2-hand">
-					<button data-button="next" class="pressure-button topcoat-button--large--cta">Naprej</button>
+				<div class="offset-9-hand column-2-hand">
+					<button data-button="next" class="pressure-button topcoat-button--cta">Naprej</button>
 				</div>
 			</div>
 
@@ -88,11 +88,11 @@
 			</div>
 
 			<div class="row" style="margin-top: 20px">
-				<div class="column-2-hand">
-					<button data-button="back" class="pressure-button topcoat-button--large--cta">Nazaj</button>
+				<div class="offset-1-hand column-2-hand">
+					<button data-button="back" class="pressure-button topcoat-button--cta">Nazaj</button>
 				</div>
-				<div class="offset-8-hand column-2-hand">
-					<button data-button="save" class="pressure-button topcoat-button--large--cta">Zaključi</button>
+				<div class="offset-6-hand column-2-hand">
+					<button data-button="save" class="pressure-button topcoat-button--cta">Zaključi</button>
 				</div>
 			</div>
 
@@ -140,8 +140,8 @@
 		</div>
 
 		<div class="row" style="margin-top: 20px">
-			<div class="offset-10-hand column-2-hand">
-				<button data-button="nextToSecond" class="status-button topcoat-button--large--cta">Naprej</button>
+			<div class="offset-9-hand column-2-hand">
+				<button data-button="nextToSecond" class="status-button topcoat-button--cta">Naprej</button>
 			</div>
 		</div>
 	</div>
@@ -187,11 +187,11 @@
 		</div>
 
 		<div class="row" style="margin-top: 20px">
-			<div class="column-2-hand">
-				<button data-button="backToFirst" class="status-button topcoat-button--large--cta">Nazaj</button>
+			<div class="offset-1-hand column-2-hand">
+				<button data-button="backToFirst" class="status-button topcoat-button--cta">Nazaj</button>
 			</div>
-			<div class="offset-8-hand column-2-hand">
-				<button data-button="nextToThird" class="status-button topcoat-button--large--cta">Naprej</button>
+			<div class="offset-6-hand column-2-hand">
+				<button data-button="nextToThird" class="status-button topcoat-button--cta">Naprej</button>
 			</div>
 		</div>
 	</div>
@@ -237,20 +237,18 @@
 		</div>
 
 		<div class="row" style="margin-top: 20px">
-			<div class="column-2-hand">
-				<button data-button="backToSecond" class="status-button topcoat-button--large--cta">Nazaj</button>
+			<div class="offset-1-hand column-2-hand">
+				<button data-button="backToSecond" class="status-button topcoat-button--cta">Nazaj</button>
 			</div>
-			<div class="offset-8-hand column-2-hand">
-				<button data-button="save" class="status-button topcoat-button--large--cta">Zaključi</button>
+			<div class="offset-6-hand column-2-hand">
+				<button data-button="save" class="status-button topcoat-button--cta">Zaključi</button>
 			</div>
 		</div>
 	</div>
 
-
-
 <!-- button for status insert -->
-			<div id="insertButton" class="row end-hand" style="margin-top: 20px; visibility: hidden; opacity: 0;">
-				<div class="column-2-hand">
+			<div id="insertButton" class="row" style="margin-top: 20px; display:none">
+				<div class="offset-9-hand column-2-hand">
 					<button id="insertStatusData" class="topcoat-button--cta">Vnos</button>
 				</div>
 			</div>

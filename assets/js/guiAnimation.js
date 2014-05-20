@@ -61,7 +61,6 @@ Telemed.guiAnim = (function($){
 					panels[0].remove();
 					removeShelf();
 					Telemed.getInitCallback()();
-					console.count('pera');
 				}
 			}
 		});

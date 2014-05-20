@@ -57,6 +57,13 @@ var Telemed = (function($){
 				Telemed.guiAnim.show('measures');
 			});
 
+			// reminders route
+			this.get('#/reminders', function() {
+				mainContext = this;
+				setCurrentPage('reminders');
+				setInitCallback(Telemed.reminders.initialize);
+				Telemed.guiAnim.show('reminders');
+			});
 		});
 	}
 
