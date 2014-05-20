@@ -188,6 +188,7 @@ Telemed.sidebarMenu = (function($){
 		$(cardActive).transition({
 			scale: 0,
 			duration: 500,
+			easing: 'easeInBack',
 			complete: function() {
 				cardActive.remove();
 				prepareMenu();
