@@ -6,17 +6,55 @@ Telemed.reminders = (function() {
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getRemindersMenu(), menuHandler);
 
 		$('.takenButton').on('click', function() {
-			var active = Telemed.sidebarMenu.getActiveSubmenu();
+			var menu = Telemed.sidebarMenu.getRemindersMenu();
+			console.log(menu.length);
 
-			console.log(active);
+			if (menu.length > 1) {
+				Telemed.sidebarMenu.setOldMenu(menu[0].cardInfo);
+				Telemed.sidebarMenu.setNewMenu(menu[1].cardInfo);
+			}
 
 			Telemed.sidebarMenu.removeActiveMenu();
+
+			// console.log(Telemed.sidebarMenu.isMenuEmpty());
+
 		});
 
+		initBackButton();		
+		showPage();
 	}
 
-	function menuHandler(oldPage, newPage, name) {
+	function menuHandler(oldPage, newPage, name, oldName) {
+		oldPage.transition({
+			opacity: 0,
+			duration: 250,
+			complete: function() {
+				oldPage.hide();
+				newPage.css({opacity: 0});
+				newPage.show();
+				
+				newPage.transition({
+					opacity: 1,
+					duration: 250
+				});				
+			}
+		});
+	}
 
+	function initBackButton() {
+		$('#backButton').on('click', function(){
+			Telemed.getMainContext().redirect('#/');
+		});
+	}
+
+	function showPage() {
+		var menu = Telemed.sidebarMenu.getRemindersMenu();
+		$('#' + menu[0].cardInfo).show();
+	}
+
+	function isMedicineTaken() {
+		var c = confirm('Ali ste ze vzeli ' + Telemed.sidebarMenu.getOldMenu());
+		return c;
 	}
 
 	function showConfirm(message) {
@@ -33,7 +71,9 @@ Telemed.reminders = (function() {
 	}
 
 	return {
-		initialize: initialize
+		initialize: initialize,
+		isMedicineTaken: isMedicineTaken,
+		switchPage: menuHandler
 	};
 
 })();

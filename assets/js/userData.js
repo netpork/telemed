@@ -30,9 +30,6 @@ Telemed.userData = (function(){
 				});				
 			}
 		});
-
-
-
 	}
 
 	function initBackButton() {

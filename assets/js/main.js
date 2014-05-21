@@ -177,7 +177,7 @@ var Telemed = (function($){
 			return touchCallback;
 		},
 
-		getCurrentPage: getCurrentPage(),
+		getCurrentPage: getCurrentPage,
 		
 		initialize: initialize
 	};

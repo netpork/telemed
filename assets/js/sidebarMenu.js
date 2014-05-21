@@ -65,7 +65,7 @@ Telemed.sidebarMenu = (function($){
 
 	function initialize(menu, menuEventHandler) {
 		container = $('#sidebar-menu');
-		oldMenu = 'personalData';
+		// oldMenu = menu[0].cardInfo;
 		newMenu = '';
 		currentMenu = menu;
 		menuHandler = menuEventHandler;
@@ -83,13 +83,19 @@ Telemed.sidebarMenu = (function($){
 
 	function prepareMenu() {
 		cards = container.find('.mini-card');
-		
+		if (!cards.length) return;
+
 		// set default classes from code since we are rendering partial
 		// TweenLite.set(container, {perspective: 300});
 		$(cards[0]).toggleClass('mini-card-active mini-card-default');
 
 		// TweenLite.set($(cards[0], {rotationX: -360}));
 		cardActive = cards[0];
+		oldMenu = $(cardActive).data('card');
+	}
+
+	function isMenuEmpty(menu) {
+		return menu.length ? false : true;
 	}
 
 	function initEvents() {
@@ -108,8 +114,16 @@ Telemed.sidebarMenu = (function($){
 		// check if clicked menu is the current one
 		if (newMenu === oldMenu) return;
 		
+		if (Telemed.getCurrentPage() === 'reminders') {
+			var taken = Telemed.reminders.isMedicineTaken();
+			if (!taken) return;
+
+			removeActive();
+			return;
+		}
+
 		setActive(this);
-		menuHandler($('#' + oldMenu), $('#' + newMenu), newMenu);
+		menuHandler($('#' + oldMenu), $('#' + newMenu), newMenu, oldMenu);
 		oldMenu = newMenu;
 	}
 
@@ -185,15 +199,37 @@ Telemed.sidebarMenu = (function($){
 	}
 
 	function removeActive() {
+		remove(reminders, oldMenu);
+
 		$(cardActive).transition({
 			scale: 0,
 			duration: 500,
 			easing: 'easeInBack',
 			complete: function() {
 				cardActive.remove();
-				prepareMenu();
+				
+				if (reminders.length >= 1) {
+					Telemed.reminders.switchPage($('#' + oldMenu), $('#' + newMenu));
+				}
+
+				if (!reminders.length) {
+					// no medicines, redirect to menu
+					Telemed.getMainContext().redirect('#/');
+				} else {
+					prepareMenu();
+				}
 			}
 		});
+
+
+	}
+
+	function remove(menu, name) {
+		var idx = menu.map(function(item) {
+			return item.cardInfo;
+		}).indexOf(name);
+
+		menu.splice(idx, 1);
 	}
 
 	function resetCards() {
@@ -221,13 +257,29 @@ Telemed.sidebarMenu = (function($){
 
 		removeActiveMenu: removeActive,
 
+		remove: remove,
+
 		menuOff: function() {
 			menuLocked = true;
 		},
 
 		menuOn: function() {
 			menuLocked = false;
-		}
+		},
+
+		getOldMenu: function() {
+			return oldMenu;
+		},
+
+		setOldMenu: function(old) {
+			oldMenu = old;
+		},
+
+		setNewMenu: function(menu) {
+			newMenu = menu;
+		},
+
+		isMenuEmpty: isMenuEmpty
 	};
 
 })(jQuery);

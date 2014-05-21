@@ -40,10 +40,17 @@ Telemed.Menu = (function(){
 		setUpMenu();
 
 		// set badges count and turn them on
-		Telemed.Menu.setBadgeCount('reminders', '3');
-		Telemed.Menu.setBadgeCount('communication', '2');
-		Telemed.Menu.setBadgeOn('reminders');
-		Telemed.Menu.setBadgeOn('communication');
+		var reminders = Telemed.sidebarMenu.getRemindersMenu();
+		if (reminders.length) {
+			Telemed.Menu.setBadgeCount('reminders', reminders.length);
+			Telemed.Menu.setBadgeOn('reminders');
+		} else {
+			// Telemed.Menu.resetBadgeCount('reminders');
+			Telemed.Menu.setBadgeOff('reminders');
+		}
+		// Telemed.Menu.setBadgeCount('communication', '2');
+		// Telemed.Menu.setBadgeOn('reminders');
+		// Telemed.Menu.setBadgeOn('communication');
 	}
 
 	function setUpMenu() {
@@ -68,7 +75,7 @@ Telemed.Menu = (function(){
 		$(badges[findCardIndex(name)]).html(count);
 	}
 
-	function resetBadgeCount(name, count) {
+	function resetBadgeCount(name) {
 		$(badges[findCardIndex(name)]).html('0');
 	}
 
@@ -115,6 +122,7 @@ Telemed.Menu = (function(){
 		// 	var dataName = obj[Object.keys(obj)[0]];
 
 		var cardName = $(e.target).data('card');
+		if (Telemed.sidebarMenu.isMenuEmpty(Telemed.sidebarMenu.getRemindersMenu())) return;
 		context.redirect('#/' + cardName);
 			
 			// setCurrentPage(dataName);
