@@ -114,7 +114,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="headache">
+					<input type="radio" name="headache" value="0">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Nikoli
 				</label>
@@ -123,7 +123,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="headache">
+					<input type="radio" name="headache" value="1/6">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Včasih
 				</label>
@@ -132,7 +132,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="headache">
+					<input type="radio" name="headache" value="1/3">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Pogosto
 				</label>
@@ -161,7 +161,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="feeling">
+					<input type="radio" name="feeling" value="0">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Dobro
 				</label>
@@ -170,7 +170,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="feeling">
+					<input type="radio" name="feeling" value="1/3">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Slabo
 				</label>
@@ -179,7 +179,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="feeling">
+					<input type="radio" name="feeling" value="0">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Ne vem
 				</label>
@@ -211,7 +211,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="wake">
+					<input type="radio" name="wake" value="0">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Nikoli
 				</label>
@@ -220,7 +220,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="wake">
+					<input type="radio" name="wake" value="1/6">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Včasih
 				</label>
@@ -229,7 +229,7 @@
 		<div class="row radio-rows">
 			<div class="offset-1-hand">
 				<label class="topcoat-radio-button">
-					<input type="radio" name="wake">
+					<input type="radio" name="wake" value="1/3">
   					<div class="topcoat-radio-button__checkmark"></div>
   					Zelo pogosto
 				</label>

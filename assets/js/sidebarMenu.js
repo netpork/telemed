@@ -115,10 +115,7 @@ Telemed.sidebarMenu = (function($){
 		if (newMenu === oldMenu) return;
 		
 		if (Telemed.getCurrentPage() === 'reminders') {
-			var taken = Telemed.reminders.isMedicineTaken();
-			if (!taken) return;
-
-			removeActive();
+			Telemed.reminders.isMedicineTaken();
 			return;
 		}
 
@@ -126,6 +123,13 @@ Telemed.sidebarMenu = (function($){
 		menuHandler($('#' + oldMenu), $('#' + newMenu), newMenu, oldMenu);
 		oldMenu = newMenu;
 	}
+
+	function confirmed(taken) {
+		if (!taken) return;
+
+		removeActive();
+	}
+
 
 	function setActive(el) {
 		// resetCards();
@@ -279,7 +283,9 @@ Telemed.sidebarMenu = (function($){
 			newMenu = menu;
 		},
 
-		isMenuEmpty: isMenuEmpty
+		isMenuEmpty: isMenuEmpty,
+
+		confirmed: confirmed
 	};
 
 })(jQuery);

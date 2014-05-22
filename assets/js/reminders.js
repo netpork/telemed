@@ -54,7 +54,7 @@ Telemed.reminders = (function() {
 
 	function isMedicineTaken() {
 		var c = confirm('Ali ste ze vzeli ' + Telemed.sidebarMenu.getOldMenu());
-		return c;
+		Telemed.sidebarMenu.confirmed(c);
 	}
 
 	function showConfirm(message) {

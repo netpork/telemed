@@ -17,7 +17,8 @@ Telemed.measures = (function(){
 
 	systolic,
 	diastolic,
-	buttonEventsInitialized
+	buttonEventsInitialized,
+	headache, overall, wake
 	;
 
 	function initialize() {
@@ -354,7 +355,7 @@ Telemed.measures = (function(){
 				enabled: false
 			},
 			title: {
-				text: 'Obdobje: April, 2014'
+				text: 'Obdobje: Maj, 2014'
 			},
 			tooltip: {
 				pointFormat: '{series.name}: <b>{point.percentage:.1f}%</b>'
@@ -383,8 +384,6 @@ Telemed.measures = (function(){
 		});
 	}
 
-
-
 	function initBackButton() {
 		$('#backButton').on('click', function(){
 			Telemed.getMainContext().redirect('#/');
@@ -400,6 +399,8 @@ Telemed.measures = (function(){
 
 			switch (whichButton) {
 			case 'nextToSecond':
+				headache = $('input:radio[name=headache]:checked').val();
+				if (!headache) return;
 				$('#statusPage1').hide();
 				$('#statusPage2').show();
 				break;
@@ -408,12 +409,20 @@ Telemed.measures = (function(){
 				$('#statusPage1').show();
 				break;
 			case 'nextToThird':
+				overall = $('input:radio[name=feeling]:checked').val()
+				if (!overall) return;
 				$('#statusPage2').hide();
 				$('#statusPage3').show();
 				break;
 			case 'save':
+				wake = $('input:radio[name=wake]:checked').val();
+				if (!wake) return;
+
+				// eval can be harmful
+				var bad = (eval(headache) + eval(overall) + eval(wake)) * 100;
+
 				var chart = container.highcharts();
-				chart.series[0].setData([['Dobro', 32.8], ['Slabo', 100 - 32.8]]);
+				chart.series[0].setData([['Dobro', 100 - bad], ['Slabo', bad]]);
 				$('#statusPage3').hide();
 				container.show();
 				Telemed.sidebarMenu.menuOn();
