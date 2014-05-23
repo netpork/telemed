@@ -122,7 +122,7 @@ Telemed.Menu = (function(){
 		// 	var dataName = obj[Object.keys(obj)[0]];
 
 		var cardName = $(e.target).data('card');
-		if (Telemed.sidebarMenu.isMenuEmpty(Telemed.sidebarMenu.getRemindersMenu())) return;
+		if (cardName === 'reminders' && Telemed.sidebarMenu.isMenuEmpty(Telemed.sidebarMenu.getRemindersMenu())) return;
 		context.redirect('#/' + cardName);
 			
 			// setCurrentPage(dataName);
