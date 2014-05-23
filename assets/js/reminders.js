@@ -53,8 +53,9 @@ Telemed.reminders = (function() {
 	}
 
 	function isMedicineTaken() {
-		var c = confirm('Ali ste ze vzeli ' + Telemed.sidebarMenu.getOldMenu());
-		Telemed.sidebarMenu.confirmed(c);
+		// var c = confirm('Ali ste ze vzeli ' + Telemed.sidebarMenu.getOldMenu());
+		showConfirm('Ali ste ze vzeli ' + Telemed.sidebarMenu.getOldMenu());
+		// Telemed.sidebarMenu.confirmed(c);
 	}
 
 	function showConfirm(message) {
@@ -67,7 +68,15 @@ Telemed.reminders = (function() {
 	}
 
 	function onConfirm(buttonIndex) {
+		var confirm;
+		
+		if (buttonIndex === 1) {
+			confirm = false;
+		} else {
+			confirm = true;
+		}
 
+		Telemed.sidebarMenu.confirmed(confirm);
 	}
 
 	return {
