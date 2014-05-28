@@ -7,6 +7,7 @@ var Telemed = (function($){
 	previousPage,
 	mainContext,
 	mainContainer,
+	communicationPage,
 	menu,
 	hammer,
 	width, height
@@ -64,36 +65,55 @@ var Telemed = (function($){
 				setInitCallback(Telemed.reminders.initialize);
 				Telemed.guiAnim.show('reminders');
 			});
+
+			// communication route
+			this.get('#/communication', function() {
+				console.log('kom');
+				mainContext = this;
+				setCurrentPage('communication');
+				setInitCallback(Telemed.communication.initialize);
+				Telemed.guiAnim.show('communication');
+			});
+
+			// communication route
+			this.get('#/communication/:page', function() {
+				console.log('kom2');
+				communicationPage = this.params.page;
+				mainContext = this;
+				setCurrentPage('communication');
+				setInitCallback(Telemed.communication.initialize2);
+				Telemed.guiAnim.show('communication/' + communicationPage);
+			});
 		});
 	}
 
 	// START ------------------------------------------------------------------------------------------------------------------------
-/*	$(function(){
+	$(function(){
 		FastClick.attach(document.body);
 		initialize();
 //		alert('skrin ' + width + ' ' + height);
 		app.debug = true;
 		app.run('#/');
 	});
-*/
 
 
+/*
 	document.addEventListener('deviceready', function() {
 		FastClick.attach(document.body);
 		StatusBar.hide();
 		initialize();
 		
-/*		navigator.notification.alert(
+		navigator.notification.alert(
 			'skrub w=' + width + ' h=' + height,  // message
 			null,         // callback
 			'Game Over',            // title
 			'Done'                  // buttonName
 		);
-*/		
+		
 		app.debug = true;
 		app.run('#/');
 	}, false);
-
+*/
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 /*	function handleHammer(e) {

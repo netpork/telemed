@@ -8,7 +8,21 @@ Telemed.guiAnim = (function($){
 	;
 
 	function showPage(page) {
-		if (page !== 'menu') {
+		var route = page.split('/');
+		
+		if (route.length === 2) {
+			var section = route[0];
+			var file = route[1];
+
+			Telemed.getMainContext()
+				.load(templatesPath + section + '/' + file + '.ms')
+				.appendTo(Telemed.getMainContainer())
+				.then(function() {
+					getPanels();
+					// Telemed.getInitCallback()();
+					scroll();
+				});
+		} else if (page !== 'menu') {
 			// show the content panel
 			Telemed.getMainContext().load(templatesPath + page + '/index.ms').appendTo(Telemed.getMainContainer())
 			.then(function() {

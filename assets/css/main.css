@@ -327,10 +327,31 @@ body {
 				line-height: 0;
 			}
 
+			.page-subtitles {
+				font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+				font-size: 1.4em;
+				font-weight: 200;
+				line-height: 0;
+			}
+
+			.titles-margins {
+				margin: 0;
+				padding-top: 30px;
+			}
+
 			.radio-rows {
 				height: 4rem;
 			}
+	
+			.button-notification {
+				position: relative;				
+			}
 
+				.notification-wrapper {
+					position: absolute;
+					top: -8px;
+					right: -8px;
+				}
 ::-webkit-scrollbar-track
 {
 	-webkit-box-shadow: inset 0 0 6px rgba(0,0,0,0.3);

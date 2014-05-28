@@ -59,7 +59,23 @@ Telemed.sidebarMenu = (function($){
 			cardInfo: 'ampril',
 			text: 'Ampril'
 		}
+	],
+
+	communication = [
+		{
+			cardInfo: 'zdravnik',
+			text: 'Zdravnik'
+		},
+		{
+			cardInfo: 'metka',
+			text: 'Metka'
+		},
+		{
+			cardInfo: 'tone',
+			text: 'Tone'
+		}
 	]
+
 
 	;
 
@@ -255,6 +271,10 @@ Telemed.sidebarMenu = (function($){
 
 		getRemindersMenu: function() {
 			return reminders;
+		},
+
+		getCommunicationMenu: function() {
+			return communication;
 		},
 
 		getActiveSubmenu: getActive,
