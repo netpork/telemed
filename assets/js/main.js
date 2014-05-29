@@ -75,13 +75,13 @@ var Telemed = (function($){
 				Telemed.guiAnim.show('communication');
 			});
 
-			// communication route
+			// communication/:arguments route
 			this.get('#/communication/:page', function() {
 				console.log('kom2');
 				communicationPage = this.params.page;
 				mainContext = this;
 				setCurrentPage('communication');
-				setInitCallback(Telemed.communication.initialize2);
+				setInitCallback(Telemed.communication[communicationPage]);
 				Telemed.guiAnim.show('communication/' + communicationPage);
 			});
 		});

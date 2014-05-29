@@ -1,4 +1,4 @@
-<div id="communication" class="tm-panel text-shadow">
+<div id="" class="tm-panel text-shadow">
 	
 	<header class="topcoat-navigation-bar row">
 		<div class="topcoat-navigation-bar__item column-1-hand">

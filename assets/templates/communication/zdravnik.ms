@@ -1,12 +1,12 @@
-<div class="row around-hand">
+<div class="row around-hand" style="min-height: 290px;">
 	<div class="column-2-hand">
 		<div class="doctor">
-			<img src="assets/img/doctor.jpg" width="205" height="246" alt="zdravnik">
+			<img src={{pic}} alt="zdravnik">
 		</div>
 	</div>
 	<div class="column-6-hand">
-		<p class="page-titles titles-margins">Dr. Zoran Novak</p>
-		<p class="page-subtitles titles-margins">Moj osebni zdravnik</p>
+		<p class="page-titles titles-margins">{{name}}</p>
+		<p class="page-subtitles titles-margins">{{sub}}</p>
 	</div>
 </div>
 
@@ -17,7 +17,7 @@
 	<div class="column-2-hand button-notification">
 		<button data-button="chat" class="topcoat-button comm-buttons">Sporočilo</button>
 		<div class="notification-wrapper">
-			<span class="topcoat-notification">2</span>
+			<span class="topcoat-notification">7</span>
 		</div>
 	</div>
 	<div class="column-2-hand">

@@ -4,10 +4,12 @@ Telemed.guiAnim = (function($){
 	var current,
 	templatesPath ='assets/templates/',
 	panels,
-	shelfWidth = 300
+	shelfWidth = 300,
+	backButton = false
 	;
 
 	function showPage(page) {
+		current = page;
 		var route = page.split('/');
 		
 		if (route.length === 2) {
@@ -24,12 +26,22 @@ Telemed.guiAnim = (function($){
 				});
 		} else if (page !== 'menu') {
 			// show the content panel
-			Telemed.getMainContext().load(templatesPath + page + '/index.ms').appendTo(Telemed.getMainContainer())
-			.then(function() {
-				getPanels();
-				// Telemed.getInitCallback()();
-				scroll();
-			});
+			if (!backButton) {
+				Telemed.getMainContext().load(templatesPath + page + '/index.ms').appendTo(Telemed.getMainContainer())
+				.then(function() {
+					getPanels();
+					// Telemed.getInitCallback()();
+					scroll();
+				});
+			} else {
+				Telemed.getMainContext().load(templatesPath + page + '/index.ms').prependTo(Telemed.getMainContainer())
+				.then(function() {
+					getPanels();
+					// Telemed.getInitCallback()();
+					scrollToMenu();
+				});
+			}
+
 		} else {
 			// show the menu panel
 			Telemed.getMainContext().load(templatesPath + page + '/index.ms').prependTo(Telemed.getMainContainer())
@@ -64,7 +76,8 @@ Telemed.guiAnim = (function($){
 		}});
 */
 		var compl = 0;
-		$(panels[1]).css({x: Telemed.getWidth()});
+
+		$(panels[1]).css({x: Telemed.getWidth(), opacity: 1});
 		$(panels[1]).removeClass('tm-hidden');
 		$(panels).transition({
 			x: '-=' + Telemed.getWidth() / 2,
@@ -75,6 +88,7 @@ Telemed.guiAnim = (function($){
 					panels[0].remove();
 					removeShelf();
 					Telemed.getInitCallback()();
+					resetBackButton();
 				}
 			}
 		});
@@ -88,14 +102,21 @@ Telemed.guiAnim = (function($){
 			panels[1].remove();
 		}});
 */
+		var compl = 0;
+		
 		$(panels[0]).css({x: -Telemed.getWidth(), opacity: 1});
+		if (current !== 'menu') Telemed.getInitCallback()();
+
 		// $(panels[0]).removeClass('tm-hidden');
 		panels.transition({
 			x: '+=' + Telemed.getWidth() / 2,
 			duration: 500,
 			easing: 'snap',
 			complete: function() {
-				panels[1].remove();
+				if (++compl % 2 === 0) {
+					panels[1].remove();
+					resetBackButton();
+				}
 			}
 		});
 	}
@@ -135,9 +156,29 @@ Telemed.guiAnim = (function($){
 		$('.shelf-container').remove();
 	}
 
+	function setFromBackButton() {
+		backButton = true;
+	}
+
+	function resetBackButton() {
+		backButton = false;
+	}
+
+
 	return {
 		show: showPage,
+		
 		showShelf: showShelf,
-		hideShelf: hideShelf
+		
+		hideShelf: hideShelf,
+		
+		isBackButton: function() {
+			return backButton;
+		},
+
+		setFromBackButton: setFromBackButton,
+
+		resetBackButton: resetBackButton
+
 	};
 })(jQuery);
