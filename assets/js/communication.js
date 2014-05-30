@@ -19,9 +19,7 @@ Telemed.communication = (function(){
 		name: 'Metka',
 		sub: 'rojstni dan ima čez 7 dni',
 		pic: "assets/img/Metka.jpg"
-	}
-
-	;
+	};
 
 	function initialize() {
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getCommunicationMenu(), menuHandler);
