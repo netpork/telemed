@@ -18,16 +18,16 @@
 			
 			<section id="" class="">
 				<div class="page-subtitles">
-					<p id="name">Dr. Zoran Novak</p>
+					<p id="name">Metka</p>
 				</div>
 				<div >
-					<img id="image" src="assets/img/doctor.jpg" width="205" height="246" alt="zdravnik">
+					<img id="image" src="assets/img/Metka.jpg" alt="metka">
 				</div>
 				<div> 
-					<button data-button="call" class="topcoat-button buttons" style="min-width: 116px;">Klic</button>
+					<button data-button="metka_call" class="topcoat-button buttons" style="min-width: 116px;">Klic</button>
 				</div>
 				<div> 
-					<button data-button="videoCall" class="topcoat-button buttons">Video klic</button>
+					<button data-button="metka_videoCall" class="topcoat-button buttons">Video klic</button>
 				</div>
 			</section>
 	
@@ -47,7 +47,7 @@
 						<div class="column-auto-hand">
 							<div class="row between-hand">
 								<div class="column-2-hand">
-									<p class="page-chat-subtitles-name">Dr. Novak</p>
+									<p class="page-chat-subtitles-name">Metka</p>
 								</div>
 								<div class="column-3-hand">
 									<p class="page-chat-subtitles-date">26 mins ago</p>
@@ -56,8 +56,9 @@
 							<!-- chat -->
 							<div class="row chat-box menu-rounded">
 								<p class="page-chat">
-									Kako se počutite danes?<br>
-									Kdaj ste si nazadnje izmerili krvni tlak?
+									Zdravo!<br>
+									Kako si danes? Se počutiš dobro?<br>
+									Kdaj se vidimo?<br>
 								</p>
 							</div>
 						</div>
@@ -86,9 +87,9 @@
 							<!-- chat -->
 							<div class="row chat-box menu-rounded">
 								<p class="page-chat">
-									Pozdravljeni!<br>
-									Počutim se odlično, hvala.<br>
-									Tlak sem si izmerila včeraj zvečer.
+									Zdravo Metka!<br>
+									Počutim se odlično, hvala. Kako si ti?<br>
+									Pridite vsi skupaj na obisk!
 								</p>
 							</div>
 						</div>
@@ -108,7 +109,7 @@
 						<div class="column-auto-hand">
 							<div class="row between-hand">
 								<div class="column-auto-hand">
-									<p class="page-chat-subtitles-name page-chat-subtitles-writing">Dr. Novak piše</p>
+									<p class="page-chat-subtitles-name page-chat-subtitles-writing">Metka piše...</p>
 								</div>
 							</div>
 						</div>

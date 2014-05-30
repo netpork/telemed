@@ -18,13 +18,13 @@
 			
 			<section id="" class="">
 				<div class="page-subtitles">
-					<p id="name">Dr. Zoran Novak</p>
+					<p id="name">Tone</p>
 				</div>
 				<div >
-					<img id="image" src="assets/img/doctor.jpg" width="205" height="246" alt="zdravnik">
+					<img id="image" src="assets/img/Tone.jpg" alt="Tone">
 				</div>
 				<div> 
-					<button data-button="videoCall" class="topcoat-button buttons">Video klic</button>
+					<button data-button="tone_videoCall" class="topcoat-button buttons">Video klic</button>
 				</div>
 			</section>
 	
@@ -48,7 +48,7 @@
 				</div>
 			</div>
 			<div class="row center-hand" style="margin-top: 30px;">
-				<button data-button="cancel" class="topcoat-button--cta buttons">Prekini</button>	
+				<button data-button="tone_cancel" class="topcoat-button--cta buttons">Prekini</button>	
 			</div>
 
 	</section>

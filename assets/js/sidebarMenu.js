@@ -15,68 +15,79 @@ Telemed.sidebarMenu = (function($){
 	userData = [
 		{
 			cardInfo: 'personalData',
-			text: 'Osebni Podatki'
+			text: 'Osebni Podatki',
+			active: false
 		},
 		{
 			cardInfo: 'personalDoctors',
-			text: 'Moji zdravniki'
+			text: 'Moji zdravniki',
+			active: true
 		},
 		{
 			cardInfo: 'personalHealthCard',
-			text: 'Karton'
+			text: 'Karton',
+			active: false
 		}
 	],
 
 	measures = [
 		{
 			cardInfo: 'weight',
-			text: 'Teža'
+			text: 'Teža',
+			active: false
 		},
 		{
 			cardInfo: 'sugar',
-			text: 'Sladkor'
+			text: 'Sladkor',
+			active: false
 		},
 		{
 			cardInfo: 'pressure',
-			text: 'Tlak'
+			text: 'Tlak',
+			active: false
 		},
 		{
 			cardInfo: 'status',
-			text: 'Počutje'
+			text: 'Počutje',
+			active: false
 		}
 	],
 
 	reminders = [
 		{
 			cardInfo: 'aspirin',
-			text: 'Aspirin'
+			text: 'Aspirin',
+			active: false
 		},
 		{
 			cardInfo: 'novonorm',
-			text: 'NovoNorm'
+			text: 'NovoNorm',
+			active: false
 		},
 		{
 			cardInfo: 'ampril',
-			text: 'Ampril'
+			text: 'Ampril',
+			active: false
 		}
 	],
 
 	communication = [
 		{
 			cardInfo: 'zdravnik',
-			text: 'Zdravnik'
+			text: 'Zdravnik',
+			active: false
 		},
 		{
 			cardInfo: 'metka',
-			text: 'Metka'
+			text: 'Metka',
+			active: false
 		},
 		{
 			cardInfo: 'tone',
-			text: 'Tone'
+			text: 'Tone',
+			active: false
 		}
 	]
-
-
 	;
 
 	function initialize(menu, menuEventHandler) {
@@ -103,7 +114,7 @@ Telemed.sidebarMenu = (function($){
 
 		// set default classes from code since we are rendering partial
 		// TweenLite.set(container, {perspective: 300});
-		$(cards[0]).toggleClass('mini-card-active mini-card-default');
+		// $(cards[0]).toggleClass('mini-card-active mini-card-default');
 
 		// TweenLite.set($(cards[0], {rotationX: -360}));
 		cardActive = cards[0];

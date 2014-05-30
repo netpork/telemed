@@ -77,7 +77,6 @@ var Telemed = (function($){
 
 			// communication/:arguments route
 			this.get('#/communication/:page', function() {
-				console.log('kom2');
 				communicationPage = this.params.page;
 				mainContext = this;
 				setCurrentPage('communication');
@@ -195,6 +194,10 @@ var Telemed = (function($){
 
 		getTouchCallback: function() {
 			return touchCallback;
+		},
+
+		getCommunicationPage: function() {
+			return communicationPage;
 		},
 
 		getCurrentPage: getCurrentPage,

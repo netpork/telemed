@@ -32,21 +32,19 @@ Telemed.communication = (function(){
 	}
 
 	function initCall() {
-		initBackButton();
+		initMenuBackButton();
 		initCallButtons();
 	}
 
 	function initVideoCall() {
-		initBackButton();
+		initMenuBackButton();
 		initVideoCallButtons();
 	}
 
 	function initChat() {
-		initBackButton();
+		initMenuBackButton();
 		initButtons();
-
 	}
-
 
 	function menuHandler(oldPage, newPage, name) {
 		console.log(name);
@@ -63,31 +61,32 @@ Telemed.communication = (function(){
 				obj = tone;
 				break;
 		}
-		loadPage(name, obj);
+		loadPage(name, obj, name);
 	}
 
-	function loadPage(page, person) {
+	function loadPage(page, person, name) {
 		container.empty();
 		Telemed.getMainContext()
 			.render('assets/templates/communication/' + page + '.ms', person)
 			.appendTo(container)
 			.then(function() {
-				initButtons();
+				initButtons(name);
 			});
 	}
 
-	function initButtons() {
+	function initButtons(name) {
 		$('.buttons').on('click', function() {
 			var button = $(this).data('button');
+			var name = button.split('_');
 			switch(button) {
-				case 'call':
-					Telemed.getMainContext().redirect('#/communication/call');
+				case name[0] + '_call':
+					Telemed.getMainContext().redirect('#/communication/' + name[0] + '_call');
 					break;
-				case 'chat':
-					Telemed.getMainContext().redirect('#/communication/chat');
+				case name[0] + '_chat':
+					Telemed.getMainContext().redirect('#/communication/' + name[0] + '_chat');
 					break;
-				case 'videoCall':
-					Telemed.getMainContext().redirect('#/communication/videoCall');
+				case name[0] + '_videoCall':
+					Telemed.getMainContext().redirect('#/communication/' + name[0] + '_videoCall');
 					break;
 			}
 		});
@@ -110,13 +109,14 @@ Telemed.communication = (function(){
 	function initCallButtons() {
 		$('.buttons').on('click', function() {
 			var action = $(this).data('button');
-
+			var name = action.split('_');
+			console.log(name);
 			switch(action) {
-				case 'videoCall':
+				case name[0] + '_videoCall':
 				Telemed.guiAnim.setFromBackButton();
-				Telemed.getMainContext().redirect('#/communication/videoCall');
+				Telemed.getMainContext().redirect('#/communication/' + name[0] + '_videoCall');
 					break;
-				case 'cancel':
+				case name[0] + '_cancel':
 					Telemed.guiAnim.setFromBackButton();
 					Telemed.getMainContext().redirect('#/communication');
 					break;
@@ -127,13 +127,14 @@ Telemed.communication = (function(){
 	function initVideoCallButtons() {
 		$('.buttons').on('click', function() {
 			var action = $(this).data('button');
+			var name = action.split('_');
 
 			switch(action) {
-				case 'call':
+				case name[0] + '_call':
 				Telemed.guiAnim.setFromBackButton();
-				Telemed.getMainContext().redirect('#/communication/call');
+				Telemed.getMainContext().redirect('#/communication/' + name[0] + '_call');
 					break;
-				case 'cancel':
+				case name[0] + '_cancel':
 					Telemed.guiAnim.setFromBackButton();
 					Telemed.getMainContext().redirect('#/communication');
 					break;
@@ -145,8 +146,14 @@ Telemed.communication = (function(){
 	return {
 		initialize: initialize,
 		loadPage: loadPage,
-		call: initCall,
-		videoCall: initVideoCall,
-		chat: initChat
+		zdravnik_call: initCall,
+		zdravnik_videoCall: initVideoCall,
+		zdravnik_chat: initChat,
+		metka_call: initCall,
+		metka_videoCall: initVideoCall,
+		metka_chat: initChat,
+		tone_call: initCall,
+		tone_videoCall: initVideoCall,
+		tone_chat: initChat
 	};
 })();
