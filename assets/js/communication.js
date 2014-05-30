@@ -52,7 +52,7 @@ Telemed.communication = (function(){
 	function menuHandler(oldPage, newPage, name) {
 		console.log(name);
 
-		Telemed.sidebarMenu.setSubPage(name);
+		// Telemed.sidebarMenu.setSubPage(name);
 
 		loadPage(name, getTemplateObject(name), name);
 		console.log('syb', Telemed.sidebarMenu.getSubPage());

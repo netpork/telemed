@@ -152,6 +152,8 @@ Telemed.sidebarMenu = (function($){
 		// check if clicked menu is the current one
 		if (newMenu === oldMenu) return;
 		
+		subPage = newMenu;
+
 		if (Telemed.getCurrentPage() === 'reminders') {
 			Telemed.reminders.isMedicineTaken();
 			return;
@@ -259,6 +261,7 @@ Telemed.sidebarMenu = (function($){
 					// no medicines, redirect to menu
 					Telemed.getMainContext().redirect('#/');
 				} else {
+					subPage = newMenu;
 					prepareMenu();
 				}
 			}
