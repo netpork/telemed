@@ -16,77 +16,64 @@ Telemed.sidebarMenu = (function($){
 	userData = [
 		{
 			cardInfo: 'personalData',
-			text: 'Osebni Podatki',
-			active: false
+			text: 'Osebni Podatki'
 		},
 		{
 			cardInfo: 'personalDoctors',
-			text: 'Moji zdravniki',
-			active: true
+			text: 'Moji zdravniki'
 		},
 		{
 			cardInfo: 'personalHealthCard',
-			text: 'Karton',
-			active: false
+			text: 'Karton'
 		}
 	],
 
 	measures = [
 		{
 			cardInfo: 'weight',
-			text: 'Teža',
-			active: false
+			text: 'Teža'
 		},
 		{
 			cardInfo: 'sugar',
-			text: 'Sladkor',
-			active: false
+			text: 'Sladkor'
 		},
 		{
 			cardInfo: 'pressure',
-			text: 'Tlak',
-			active: false
+			text: 'Tlak'
 		},
 		{
 			cardInfo: 'status',
-			text: 'Počutje',
-			active: false
+			text: 'Počutje'
 		}
 	],
 
 	reminders = [
 		{
 			cardInfo: 'aspirin',
-			text: 'Aspirin',
-			active: false
+			text: 'Aspirin'
 		},
 		{
 			cardInfo: 'novonorm',
-			text: 'NovoNorm',
-			active: false
+			text: 'NovoNorm'
 		},
 		{
 			cardInfo: 'ampril',
-			text: 'Ampril',
-			active: false
+			text: 'Ampril'
 		}
 	],
 
 	communication = [
 		{
 			cardInfo: 'zdravnik',
-			text: 'Zdravnik',
-			active: false
+			text: 'Zdravnik'
 		},
 		{
 			cardInfo: 'metka',
-			text: 'Metka',
-			active: false
+			text: 'Metka'
 		},
 		{
 			cardInfo: 'tone',
-			text: 'Tone',
-			active: false
+			text: 'Tone'
 		}
 	]
 	;
