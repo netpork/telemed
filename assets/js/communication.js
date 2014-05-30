@@ -41,6 +41,12 @@ Telemed.communication = (function(){
 		initVideoCallButtons();
 	}
 
+	function initChat() {
+		initBackButton();
+		initButtons();
+
+	}
+
 
 	function menuHandler(oldPage, newPage, name) {
 		console.log(name);
@@ -71,13 +77,14 @@ Telemed.communication = (function(){
 	}
 
 	function initButtons() {
-		$('.comm-buttons').on('click', function() {
+		$('.buttons').on('click', function() {
 			var button = $(this).data('button');
 			switch(button) {
 				case 'call':
 					Telemed.getMainContext().redirect('#/communication/call');
 					break;
 				case 'chat':
+					Telemed.getMainContext().redirect('#/communication/chat');
 					break;
 				case 'videoCall':
 					Telemed.getMainContext().redirect('#/communication/videoCall');
@@ -139,7 +146,7 @@ Telemed.communication = (function(){
 		initialize: initialize,
 		loadPage: loadPage,
 		call: initCall,
-		videoCall: initVideoCall
-	
+		videoCall: initVideoCall,
+		chat: initChat
 	};
 })();

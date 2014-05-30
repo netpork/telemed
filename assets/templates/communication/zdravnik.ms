@@ -12,15 +12,15 @@
 
 <div class="row around-hand" style="margin-top: 30px;">
 	<div class="column-2-hand">
-		<button data-button="call" class="topcoat-button comm-buttons">Klic</button>
+		<button data-button="call" class="topcoat-button buttons">Klic</button>
 	</div>
 	<div class="column-2-hand button-notification">
-		<button data-button="chat" class="topcoat-button comm-buttons">Sporočilo</button>
+		<button data-button="chat" class="topcoat-button buttons">Sporočilo</button>
 		<div class="notification-wrapper">
 			<span class="topcoat-notification">7</span>
 		</div>
 	</div>
 	<div class="column-2-hand">
-		<button data-button="videoCall" class="topcoat-button comm-buttons">Video klic</button>
+		<button data-button="videoCall" class="topcoat-button buttons">Video klic</button>
 	</div>
 </div>

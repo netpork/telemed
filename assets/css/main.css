@@ -334,6 +334,43 @@ body {
 				line-height: 0;
 			}
 
+			.page-chat-subtitles-name {
+				font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+				font-size: 1em;
+				font-weight: 600;
+				line-height: 0;
+			}
+
+			.page-chat-subtitles-date {
+				font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+				font-size: 0.7em;
+				font-weight: 600;
+				line-height: 1em;
+				text-align: right;
+			}
+
+			.page-chat-subtitles-writing {
+				color: silver;
+			}
+
+			.page-chat {
+				font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+				font-size: 1em;
+				font-weight: 200;
+				line-height: 1em;
+				margin: 0;
+			}
+
+			.chat-box {
+				margin: 5px 0 0px 0;
+				padding: 10px;
+				border: 1px solid black;
+			}
+
+			.chat-box-margins {
+				margin-bottom: 30px;
+			}
+
 			.titles-margins {
 				margin: 0;
 				padding-top: 30px;

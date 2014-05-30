@@ -57,6 +57,7 @@
 					<button data-button="cancel" class="topcoat-button--cta buttons">Prekini</button>	
 				</div>
 			</div>
+		</div>
 	</section>
 
 
