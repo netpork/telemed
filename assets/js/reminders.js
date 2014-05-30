@@ -1,7 +1,6 @@
 Telemed.reminders = (function() {
 	'use strict';
 
-
 	function initialize() {
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getRemindersMenu(), menuHandler);
 
