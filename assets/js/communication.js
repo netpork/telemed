@@ -26,42 +26,36 @@ Telemed.communication = (function(){
 	function initialize() {
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getCommunicationMenu(), menuHandler);
 		container = $('#communicataionContainer');
-		loadPage('zdravnik', zdravnik);
+		loadPage(
+			Telemed.sidebarMenu.getSubPage(),
+			getTemplateObject(Telemed.sidebarMenu.getSubPage())
+			);
 		initMenuBackButton();
 		console.log('1');
 	}
 
 	function initCall() {
-		initMenuBackButton();
+		initBackButton();
 		initCallButtons();
 	}
 
 	function initVideoCall() {
-		initMenuBackButton();
+		initBackButton();
 		initVideoCallButtons();
 	}
 
 	function initChat() {
-		initMenuBackButton();
+		initBackButton();
 		initButtons();
 	}
 
 	function menuHandler(oldPage, newPage, name) {
 		console.log(name);
-		var obj;
 
-		switch (name) {
-			case 'zdravnik':
-				obj = zdravnik;
-				break;
-			case 'metka':
-				obj = metka;
-				break;
-			case 'tone':
-				obj = tone;
-				break;
-		}
-		loadPage(name, obj, name);
+		Telemed.sidebarMenu.setSubPage(name);
+
+		loadPage(name, getTemplateObject(name), name);
+		console.log('syb', Telemed.sidebarMenu.getSubPage());
 	}
 
 	function loadPage(page, person, name) {
@@ -142,6 +136,20 @@ Telemed.communication = (function(){
 		});
 	}
 
+	function getTemplateObject(name) {
+
+		switch (name) {
+			case 'zdravnik':
+				return zdravnik;
+				break;
+			case 'metka':
+				return metka;
+				break;
+			case 'tone':
+				return tone;
+				break;
+		}
+	}
 
 	return {
 		initialize: initialize,

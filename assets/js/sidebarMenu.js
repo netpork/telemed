@@ -5,6 +5,7 @@ Telemed.sidebarMenu = (function($){
 	cards,
 	cardActive,
 	currentMenu,
+	subPage = 'zdravnik',
 	newMenu,
 	oldMenu,
 	menuHandler,
@@ -114,10 +115,20 @@ Telemed.sidebarMenu = (function($){
 
 		// set default classes from code since we are rendering partial
 		// TweenLite.set(container, {perspective: 300});
-		// $(cards[0]).toggleClass('mini-card-active mini-card-default');
+
+		var action;
+		$.each(cards, function(idx, el) {
+			action = $(el).data('card');
+			if (action === subPage) {
+				$(el)
+					.removeClass('mini-card-active mini-card-default')
+					.addClass('mini-card-active');
+				cardActive = el;
+				return false;
+			}
+		});
 
 		// TweenLite.set($(cards[0], {rotationX: -360}));
-		cardActive = cards[0];
 		oldMenu = $(cardActive).data('card');
 	}
 
@@ -162,6 +173,7 @@ Telemed.sidebarMenu = (function($){
 		// resetCards();
 		
 		tweenBusy = true;
+		console.log(el, cardActive);
 
 		$(cardActive).transition({
 			rotateX: '360deg',
@@ -312,6 +324,14 @@ Telemed.sidebarMenu = (function($){
 
 		setNewMenu: function(menu) {
 			newMenu = menu;
+		},
+
+		setSubPage: function(page) {
+			subPage = page;
+		},
+
+		getSubPage: function() {
+			return subPage;
 		},
 
 		isMenuEmpty: isMenuEmpty,

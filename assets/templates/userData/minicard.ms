@@ -1,14 +1,3 @@
-<div data-card="{{cardInfo}}" 
-
-{{#active}}
-	class="mini-card mini-card-active card-shadow menu-rounded"
-{{/active}}
-
-{{^active}}
-	class="mini-card mini-card-default card-shadow menu-rounded"
-{{/active}}
->
-
-
+<div data-card="{{cardInfo}}" class="mini-card mini-card-default card-shadow menu-rounded">
 	<span>{{text}}</span>
 </div>

@@ -38,6 +38,7 @@ var Telemed = (function($){
 			this.get('#/', function() {
 				mainContext = this;
 				setCurrentPage('menu');
+				Telemed.sidebarMenu.setSubPage('zdravnik');
 				setInitCallback(Telemed.Menu.initialize);
 				Telemed.guiAnim.show('menu');
 			});
@@ -46,6 +47,7 @@ var Telemed = (function($){
 			this.get('#/userData', function() {
 				mainContext = this;
 				setCurrentPage('userData');
+				Telemed.sidebarMenu.setSubPage('personalData');
 				setInitCallback(Telemed.userData.initialize);
 				Telemed.guiAnim.show('userData');
 			});
@@ -54,6 +56,7 @@ var Telemed = (function($){
 			this.get('#/measures', function() {
 				mainContext = this;
 				setCurrentPage('measures');
+				Telemed.sidebarMenu.setSubPage('weight');	
 				setInitCallback(Telemed.measures.initialize);
 				Telemed.guiAnim.show('measures');
 			});
@@ -62,6 +65,7 @@ var Telemed = (function($){
 			this.get('#/reminders', function() {
 				mainContext = this;
 				setCurrentPage('reminders');
+				Telemed.sidebarMenu.setSubPage('aspirin');	
 				setInitCallback(Telemed.reminders.initialize);
 				Telemed.guiAnim.show('reminders');
 			});
@@ -71,6 +75,7 @@ var Telemed = (function($){
 				console.log('kom');
 				mainContext = this;
 				setCurrentPage('communication');
+				// Telemed.sidebarMenu.setSubPage('zdravnik');	
 				setInitCallback(Telemed.communication.initialize);
 				Telemed.guiAnim.show('communication');
 			});
