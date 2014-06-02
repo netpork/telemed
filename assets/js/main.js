@@ -92,32 +92,31 @@ var Telemed = (function($){
 	}
 
 	// START ------------------------------------------------------------------------------------------------------------------------
-	$(function(){
+/*	$(function(){
 		FastClick.attach(document.body);
 		initialize();
 //		alert('skrin ' + width + ' ' + height);
 		app.debug = true;
 		app.run('#/');
 	});
+*/
 
-
-/*
 	document.addEventListener('deviceready', function() {
 		FastClick.attach(document.body);
 		StatusBar.hide();
 		initialize();
 		
-		navigator.notification.alert(
+/*		navigator.notification.alert(
 			'skrub w=' + width + ' h=' + height,  // message
 			null,         // callback
 			'Game Over',            // title
 			'Done'                  // buttonName
 		);
-		
-		app.debug = true;
+*/		
+		app.debug = false;
 		app.run('#/');
 	}, false);
-*/
+
 
 	// METHODS ------------------------------------------------------------------------------------------------------------------------
 /*	function handleHammer(e) {

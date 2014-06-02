@@ -80,6 +80,9 @@
     <!-- <icon src="icon-48.png" gap:platform="android" /> -->
     <icon src="icon.png" gap:platform="ios" width="72" height="72" />
 
+    <gap:splash src="screen-ipad-landscape.png" gap:platform="ios" width="1024" height="768" />
+
+
 
 <!--    <icon src="res/icon/android/icon-36-ldpi.png"   gap:platform="android"    gap:density="ldpi" />
     <icon src="res/icon/android/icon-48-mdpi.png"   gap:platform="android"    gap:density="mdpi" />
