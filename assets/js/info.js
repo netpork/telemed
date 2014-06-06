@@ -4,7 +4,10 @@ Telemed.info = (function(){
 	var subMenus,
 	subIndex = 0,
 	subPage = '',
-	header
+	header,
+	info,
+	grid, news,
+	newsSwitch = false
 	;
 
 	function initialize() {
@@ -13,6 +16,13 @@ Telemed.info = (function(){
 		Telemed.sidebarMenu.initialize(Telemed.sidebarMenu.getInfoMenu(), menuHandler);
 		initBackButton();
 		header = $('#crumbs');
+		info = $('#infoContainer');
+		grid = $('#gridContainer');
+		news = $('#newsContainer');
+
+		$('#gridContainer').on('click', 'div.column-2-hand', onGridClick);
+		$('.closeButton').on('click', onCloseButtonClick);
+
 	}
 
 	function menuHandler(oldPage, newPage, name) {
@@ -48,6 +58,18 @@ Telemed.info = (function(){
 		}
 	}
 	
+	function onGridClick(e) {
+		grid.hide('slow', function() {
+			news.show();
+		});
+	}
+
+	function onCloseButtonClick() {
+		news.hide('slow', function() {
+			grid.show();
+		});
+	}
+
 	function getMenu(menuName) {
 		Telemed.sidebarMenu.emptyMenuContainer();
 		var menu = subMenus.map(function(obj) {

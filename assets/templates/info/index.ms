@@ -20,10 +20,10 @@
 	
 		</div>
 
-<!-- communication -->
+<!-- info -->
 		<div id="infoContainer" class="column-auto-hand right-container" style="display: block; margin-top: 20px;">
 		
-			<section id="gridContainer" style="display: none;">
+			<section id="gridContainer" style="display: block;">
 			<!-- grid breaking news-->
 				<div class="row around-hand gridrow">
 					<div class="column-2-hand">
@@ -77,7 +77,7 @@
 				</div>
 			</section>
 
-			<section id="newsContainer" style="display: block; padding: 20px;">
+			<section id="newsContainer" style="display: none; padding: 20px;">
 				<p class="news-titles">Dobro je, da Evropi pokažemo naš potencial in dobre izvajalce!</p>
 				<p>Azerbajdžanska evrovizijska izkušnja je samo še spomin na zelo pozitivno izkušnjo. "Nedvomno bi jo ponovila še enkrat. Ne še zdaj, mogoče čez nekaj let," priznava pevka Eva Boto.
 				</p>
@@ -87,6 +87,15 @@
 				<p>
 					Na leto, ki se ni začelo najbolje, saj ga je zaznamovala prometna nesreča na silvestrovo, gleda pozitivno. "Prometna nesreča je name vplivala samo tako, da sem sama sebi rekla, da bo zaradi tega leto 2014 boljše in stopam vanj z veliko pozitivne energije, pripravljena na nove izzive," je še dejala pevka.
 				</p>
+		
+
+				<div class="row center-hand">
+					<div class="column-2-hand">
+						<button class="closeButton topcoat-button--cta">Zapri</button>
+					</div>
+				</div>
+
+
 			</section>
 
 
