@@ -75,6 +75,102 @@ Telemed.sidebarMenu = (function($){
 			cardInfo: 'tone',
 			text: 'Tone'
 		}
+	],
+
+	info = [
+		{
+			cardInfo: 'news',
+			text: 'Aktualno'
+		},
+		{
+			cardInfo: 'sport',
+			text: 'Šport'
+		},
+		{
+			cardInfo: 'culture',
+			text: 'Kultura'
+		},
+		{
+			cardInfo: 'entertainment',
+			text: 'Zabava'
+		}
+	],
+
+	news = [
+		{
+			cardInfo: 'slovenia',
+			text: 'Slovenija'
+		},
+		{
+			cardInfo: 'world',
+			text: 'Svet'
+		},
+		{
+			cardInfo: 'economy',
+			text: 'Gospodarstvo'
+		},
+		{
+			cardInfo: 'health',
+			text: 'Zdravstvo'
+		}
+	],
+	
+
+	sport = [
+		{
+			cardInfo: 'basketball',
+			text: 'Košarka'
+		},
+		{
+			cardInfo: 'skiing',
+			text: 'Smučanje'
+		},
+		{
+			cardInfo: 'football',
+			text: 'Nogomet'
+		},
+		{
+			cardInfo: 'formula1',
+			text: 'Formula 1'
+		}
+	],
+
+	culture = [
+		{
+			cardInfo: 'film',
+			text: 'Film'
+		},
+		{
+			cardInfo: 'music',
+			text: 'Glasba'
+		},
+		{
+			cardInfo: 'exhibition',
+			text: 'Raztave'
+		},
+		{
+			cardInfo: 'books',
+			text: 'Knjige'
+		}
+	],	
+
+	entertainment = [
+		{
+			cardInfo: 'attractions',
+			text: 'Zanimivosti'
+		},
+		{
+			cardInfo: 'fashion',
+			text: 'Moda'
+		},
+		{
+			cardInfo: 'auto',
+			text: 'Avtobilizem'
+		},
+		{
+			cardInfo: 'horoscope',
+			text: 'Horoskop'
+		}
 	]
 	;
 
@@ -103,17 +199,21 @@ Telemed.sidebarMenu = (function($){
 		// set default classes from code since we are rendering partial
 		// TweenLite.set(container, {perspective: 300});
 
-		var action;
-		$.each(cards, function(idx, el) {
-			action = $(el).data('card');
-			if (action === subPage) {
-				$(el)
-					.removeClass('mini-card-active mini-card-default')
-					.addClass('mini-card-active');
-				cardActive = el;
-				return false;
-			}
-		});
+		if (Telemed.getCurrentPage() !== 'info') { 
+			var action;
+			$.each(cards, function(idx, el) {
+				action = $(el).data('card');
+				console.log(action, subPage);
+				if (action === subPage) {
+					console.log(action);
+					$(el)
+						.removeClass('mini-card-active mini-card-default')
+						.addClass('mini-card-active');
+					cardActive = el;
+					return false;
+				}
+			});
+		}
 
 		// TweenLite.set($(cards[0], {rotationX: -360}));
 		oldMenu = $(cardActive).data('card');
@@ -136,8 +236,11 @@ Telemed.sidebarMenu = (function($){
 
 		newMenu = $(this).data('card');
 		
-		// check if clicked menu is the current one
-		if (newMenu === oldMenu) return;
+		if (Telemed.getCurrentPage() !== 'info') {
+
+			// check if clicked menu is the current one
+			if (newMenu === oldMenu) return;
+		}
 		
 		subPage = newMenu;
 
@@ -146,7 +249,10 @@ Telemed.sidebarMenu = (function($){
 			return;
 		}
 
-		setActive(this);
+		if (Telemed.getCurrentPage() !== 'info') {
+			setActive(this);
+		}
+		
 		menuHandler($('#' + oldMenu), $('#' + newMenu), newMenu, oldMenu);
 		oldMenu = newMenu;
 	}
@@ -162,7 +268,7 @@ Telemed.sidebarMenu = (function($){
 		// resetCards();
 		
 		tweenBusy = true;
-		console.log(el, cardActive);
+		// console.log(el, cardActive);
 
 		$(cardActive).transition({
 			rotateX: '360deg',
@@ -273,6 +379,11 @@ Telemed.sidebarMenu = (function($){
 
 	return {
 		initialize: initialize,
+
+		emptyMenuContainer: function() {
+			container.empty();
+			container.css('opacity', 0);
+		},
 		
 		getUserDataMenu: function() {
 			return userData;
@@ -288,6 +399,37 @@ Telemed.sidebarMenu = (function($){
 
 		getCommunicationMenu: function() {
 			return communication;
+		},
+
+		getInfoMenu: function() {
+			return info;
+		},
+
+		getInfoSubMenus: function() {
+			return [
+				{
+					'name': 'news',	
+					obj: news,
+					info: 'Aktualno'
+				},
+				{
+					'name': 'sport',
+					obj: sport,
+					info: 'Šport'
+				},
+				{
+					'name': 'entertainment',	
+					obj: entertainment,
+					info: 'Zabava'
+
+				}, 
+				{
+					'name': 'culture',	
+					obj: culture,
+					info: 'Kultura'
+
+				}
+			];
 		},
 
 		getActiveSubmenu: getActive,

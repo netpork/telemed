@@ -280,6 +280,10 @@ body {
 			border-bottom: 1px solid #E0E0E0;
 		}
 
+		.gridrow {
+			margin-bottom: 15px;
+		}
+
 		.page {
 			width: 100%;
 			height: 90%;
@@ -326,6 +330,14 @@ body {
 				font-weight: 200;
 				line-height: 0;
 			}
+
+			.news-titles {
+				font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
+				font-size: 2.5em;
+				font-weight: 200;
+				line-height: 1em;
+			}
+
 
 			.page-subtitles {
 				font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
