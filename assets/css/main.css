@@ -115,35 +115,37 @@ body {
 		}
 
 		.left-container section .mini-card-active span {
-			color: #08346e;
+			color: #052e41;
 			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
 			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
 			font-size: 1.6em;
 			font-weight: 600;
 			line-height: 3.3em;
 			/*display: inline-block;*/
+			text-shadow: 0 1px #93d6f6; 
+
 		}
 
 		.left-container section .mini-card-default span {
-			color: #01070f;
+			color: #034c7c;
 			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
 			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
 			font-size: 1.6em;
 			font-weight: 600;
 			line-height: 3.3em;
 			/*display: inline-block;*/
-			text-shadow: 0 1px #3083f0; 
+			text-shadow: 0 1px #ffffff; 
 		}
 
 		.mini-card-default {
 			/*background: -webkit-radial-gradient(bottom, circle cover, #ffffff 0%, #aaa 100%);*/
-			background-color: #093b7e;
-			border: 2px solid #06254f;
+			background-color: #b4e0fd;
+			border: 2px solid #93d2fc;
 		}
 		
 		.mini-card-active {
-			background-color: #9fc5f8;
-			border: 2px solid #6fa8dc;
+			background-color: #15a7ec;
+			border: 2px solid #0e7baf;
 		}
 
 		.menu-rounded {
