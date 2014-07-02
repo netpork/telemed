@@ -125,7 +125,7 @@ body {
 		}
 
 		.left-container section .mini-card-default span {
-			color: #03162f;
+			color: #01070f;
 			/*font-family: 'robotoregular', Tahoma, Verdana, Segoe, sans-serif;*/
 			font-family: 'Source Sans', Tahoma, Verdana, Segoe, sans-serif;
 			font-size: 1.6em;
@@ -137,8 +137,8 @@ body {
 
 		.mini-card-default {
 			/*background: -webkit-radial-gradient(bottom, circle cover, #ffffff 0%, #aaa 100%);*/
-			background-color: #0b4a9d;
-			border: 2px solid #093b7e;
+			background-color: #093b7e;
+			border: 2px solid #06254f;
 		}
 		
 		.mini-card-active {
